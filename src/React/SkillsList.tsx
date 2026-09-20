@@ -12,8 +12,19 @@ const CategoryIcons = {
   ),
 };
 
-const RoleLogos: Record<string, string> = {
-  "Web Director": "/AELSA-Portfolio/images/asus-logo.png?v=2",
+const RoleLogos: Record<string, { src: string; alt: string }> = {
+  "Web Director": {
+    src: "/AELSA-Portfolio/images/asus-logo.png?v=2",
+    alt: "ASUS",
+  },
+  "Logistics Officer": {
+    src: "/AELSA-Portfolio/images/qhacks-logo.png?v=1",
+    alt: "QHacks",
+  },
+  "Club President": {
+    src: "/AELSA-Portfolio/images/club-president-logo.png?v=1",
+    alt: "Club President organization",
+  },
 };
 
 const SkillsList = () => {
@@ -55,9 +66,9 @@ const SkillsList = () => {
               <div className="flex items-center gap-3 p-4">
                 {RoleLogos[category] ? (
                   <img
-                    src={RoleLogos[category]}
-                    alt="ASUS"
-                    className="w-12 h-8 object-contain flex-shrink-0"
+                    src={RoleLogos[category].src}
+                    alt={RoleLogos[category].alt}
+                    className="w-12 h-9 object-contain flex-shrink-0"
                   />
                 ) : (
                   CategoryIcons[category as keyof typeof CategoryIcons]
