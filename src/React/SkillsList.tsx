@@ -13,7 +13,7 @@ const CategoryIcons = {
 };
 
 const RoleLogos: Record<string, string> = {
-  "Web Director": "/AELSA-Portfolio/images/asus-logo.png",
+  "Web Director": "/AELSA-Portfolio/images/asus-logo.png?v=2",
 };
 
 const SkillsList = () => {
