@@ -16,16 +16,16 @@ const SkillsList = () => {
   const [openItem, setOpenItem] = useState<string | null>(null);
 
   const skills = {
-    "Web Development": [
+    "Web Director": [
       "Single Page Applications (SPAs)",
       "Landing pages and business websites",
       "Portfolio websites",
     ],
-    "Mobile Development": [
+    "Logistics Officer": [
       "Mobile-friendly web apps",
       "React Native mobile apps",
     ],
-    "UI/UX Design & Prototyping": [
+    "Club President": [
       "UI design with Figma & Canva",
       "UX research & improvements",
       "Prototyping for websites & mobile apps",
