@@ -37,8 +37,9 @@ const SkillsList = () => {
       "Portfolio websites",
     ],
     "Logistics Officer": [
-      "Mobile-friendly web apps",
-      "React Native mobile apps",
+      "Served as Logistics Officer for QHacks, Queen’s University’s annual hackathon, supporting the planning and execution of its 11th edition with approximately 250 hackers.",
+      "Coordinated venue-related paperwork, event setup, meal logistics, and day-of operations to ensure the 3-day hackathon ran smoothly.",
+      "Worked with the organizing team to manage event flow, resolve logistical issues in real time, and support a positive experience for participants, organizers, and guests.",
     ],
     "Club President": [
       "Led the club’s flagship project, developing a web platform for Grades 9–12 students to select their grade level and enrolled courses to view personalized AMS and Periodic exam schedules, including test dates and times.",
