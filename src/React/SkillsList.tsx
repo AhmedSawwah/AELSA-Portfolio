@@ -32,11 +32,10 @@ const SkillsList = () => {
 
   const skills = {
     "Web Director": [
-      "Leveraged Squarespace, HTML, CSS, JavaScript, and jQuery to customize and maintain the website, while using TriHire to publish openings, manage applications, and streamline student recruitment.",
-      "Manage and maintain the ASUS website, ensuring accurate and accessible information for 13,000+ Arts and Science students across academic resources, financial services, student support, and orientation programming.",
-      "Coordinate with eight ASUS offices, a Co-director, and commissions to publish timely updates, reports, applications, event information, schedules, and organizational contact details.",
-      "Optimize the website’s information architecture, navigation, search functionality, and mobile responsiveness to make essential student services and resources easier to access.",
-      "Monitor website performance and accessibility, troubleshoot technical and content issues, maintain external forms and integrations, and respond to website-related requests from ASUS teams.",
+      "Implement website enhancements using Squarespace, HTML, CSS, JavaScript, and jQuery, including customized page layouts and third-party form integrations.",
+      "Collaborate with a Co-Director and leaders across eight ASUS offices and commissions to publish accurate academic resources, financial information, event schedules, reports, and student-support content for 13,000+ students.",
+      "Administer the TriHire recruitment platform to publish available positions, manage applications, and streamline student hiring processes.",
+      "Optimize site navigation, search functionality, mobile responsiveness, and accessibility while troubleshooting technical issues and responding to website requests from ASUS teams.",
     ],
     "Logistics Officer": [
       "Served as Logistics Officer for QHacks, Queen’s University’s annual hackathon, supporting the planning and execution of its 11th edition with approximately 250 hackers.",
