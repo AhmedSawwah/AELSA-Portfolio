@@ -32,9 +32,10 @@ const SkillsList = () => {
 
   const skills = {
     "Web Director": [
-      "Single Page Applications (SPAs)",
-      "Landing pages and business websites",
-      "Portfolio websites",
+      "Manage and maintain the ASUS website, ensuring accurate and accessible information for 13,000+ Arts and Science students across academic resources, financial services, student support, and orientation programming.",
+      "Coordinate with eight ASUS offices, a Co-director, and commissions to publish timely updates, reports, applications, event information, schedules, and organizational contact details.",
+      "Optimize the website’s information architecture, navigation, search functionality, and mobile responsiveness to make essential student services and resources easier to access.",
+      "Monitor website performance and accessibility, troubleshoot technical and content issues, maintain external forms and integrations, and respond to website-related requests from ASUS teams.",
     ],
     "Logistics Officer": [
       "Served as Logistics Officer for QHacks, Queen’s University’s annual hackathon, supporting the planning and execution of its 11th edition with approximately 250 hackers.",
@@ -109,6 +110,62 @@ const SkillsList = () => {
                     </div>
                   ))}
                 </ul>
+                {category === "Web Director" && (
+                  <a
+                    href="https://www.queensasus.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(event) => event.stopPropagation()}
+                    className="mt-4 flex items-center justify-between gap-3 rounded-lg border border-[#00ff4166] bg-[#00ff4114] px-3 py-2.5 text-[#00ff41] transition-colors hover:border-[#00ff41b3] hover:bg-[#00ff4124]"
+                    aria-label="Visit the ASUS website in a new tab"
+                  >
+                    <span className="flex min-w-0 items-center gap-2.5">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        aria-hidden="true"
+                        className="flex-shrink-0"
+                      >
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="M2 12h20" />
+                        <path d="M12 2a15.3 15.3 0 0 1 0 20" />
+                        <path d="M12 2a15.3 15.3 0 0 0 0 20" />
+                      </svg>
+                      <span className="min-w-0">
+                        <span className="block text-sm font-medium">
+                          Visit ASUS Website
+                        </span>
+                        <span className="block truncate text-xs text-[var(--white-icon)]">
+                          queensasus.com
+                        </span>
+                      </span>
+                    </span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      aria-hidden="true"
+                      className="flex-shrink-0"
+                    >
+                      <path d="M15 3h6v6" />
+                      <path d="M10 14 21 3" />
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                    </svg>
+                  </a>
+                )}
                 {category === "Logistics Officer" && (
                   <a
                     href="https://capturedbyash10.pixieset.com/qhacksday01/"
