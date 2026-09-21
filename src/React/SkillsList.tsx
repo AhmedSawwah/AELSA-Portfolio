@@ -41,9 +41,10 @@ const SkillsList = () => {
       "React Native mobile apps",
     ],
     "Club President": [
-      "UI design with Figma & Canva",
-      "UX research & improvements",
-      "Prototyping for websites & mobile apps",
+      "Led the club’s flagship project, developing a web platform for Grades 9–12 students to select their grade level and enrolled courses to view personalized AMS and Periodic exam schedules, including test dates and times.",
+      "Built the platform using HTML, CSS, JavaScript, and a Flask/Python backend, with a lightweight SQLite database to store and update course and exam schedule data.",
+      "Created a simple admin dashboard for updating AMS and Periodic schedules, helping centralize exam information and reduce scheduling confusion for students.",
+      "Collaborated with the school’s IT department to provide on-call technical support for the ITL (institution’s test-taking system), troubleshooting issues in real time during exam periods.",
     ],
   };
 
