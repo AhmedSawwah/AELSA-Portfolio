@@ -38,7 +38,7 @@ const SkillsList = () => {
     ],
     "Logistics Officer": [
       "Served as Logistics Officer for QHacks, Queen’s University’s annual hackathon, supporting the planning and execution of its 11th edition with approximately 250 hackers.",
-      "Coordinated venue-related paperwork, event setup, meal logistics, and day-of operations to ensure the 3-day hackathon ran smoothly.",
+      "Coordinated venue-related paperwork, event setup, meal logistics, sponsors and day-of operations to ensure the 3-day hackathon ran smoothly.",
       "Worked with the organizing team to manage event flow, resolve logistical issues in real time, and support a positive experience for participants, organizers, and guests.",
     ],
     "Club President": [
