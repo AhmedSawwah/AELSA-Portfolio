@@ -32,6 +32,7 @@ const SkillsList = () => {
 
   const skills = {
     "Web Director": [
+      "Leveraged Squarespace, HTML, CSS, JavaScript, and jQuery to customize and maintain the website, while using TriHire to publish openings, manage applications, and streamline student recruitment.",
       "Manage and maintain the ASUS website, ensuring accurate and accessible information for 13,000+ Arts and Science students across academic resources, financial services, student support, and orientation programming.",
       "Coordinate with eight ASUS offices, a Co-director, and commissions to publish timely updates, reports, applications, event information, schedules, and organizational contact details.",
       "Optimize the website’s information architecture, navigation, search functionality, and mobile responsiveness to make essential student services and resources easier to access.",
