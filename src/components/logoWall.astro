@@ -1,5 +1,6 @@
 ---
-const baseUrl = import.meta.env.BASE_URL;
+const rawBaseUrl = import.meta.env.BASE_URL;
+const baseUrl = rawBaseUrl.endsWith("/") ? rawBaseUrl : `${rawBaseUrl}/`;
 
 const technologies = [
   "astro",
@@ -31,7 +32,7 @@ const technologies = [
           aria-hidden={index >= technologies.length ? "true" : "false"}
         >
           <img
-            src={`${baseUrl}/svg/${tech}.svg`}
+            src={`${baseUrl}svg/${tech}.svg`}
             alt={tech}
             class="h-7 w-auto object-contain transition-transform group-hover:scale-110 opacity-60"
             width="30"
