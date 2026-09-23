@@ -1,11 +1,17 @@
 ---
+import "@fontsource-variable/montserrat";
+
 interface Props {
   title: string;
 }
 
 const { title } = Astro.props;
-const siteUrl = "https://ahmedsawwah.github.io/AELSA-Portfolio/";
-const baseUrl = import.meta.env.BASE_URL;
+const rawBaseUrl = import.meta.env.BASE_URL;
+const baseUrl = rawBaseUrl.endsWith("/") ? rawBaseUrl : `${rawBaseUrl}/`;
+const siteUrl = new URL(
+  baseUrl,
+  Astro.site ?? new URL("https://ahmedsawwah.github.io"),
+).toString();
 ---
 
 <!doctype html>
@@ -18,16 +24,8 @@ const baseUrl = import.meta.env.BASE_URL;
       content="Ahmed El-Sawwah - Software Developer building interactive and seamless digital experiences with cutting-edge frontend development."
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" href={`${baseUrl}/saw-favicon-xl.png`} />
+    <link rel="icon" type="image/png" href={`${baseUrl}saw-favicon-xl.png`} />
     <link rel="canonical" href={siteUrl} />
-
-    <link
-      rel="preload"
-      href={`${baseUrl}/fonts/montserrat-latin-wght-normal.woff2`}
-      as="font"
-      type="font/woff2"
-      crossorigin="anonymous"
-    />
 
     <meta
       property="og:title"
@@ -39,7 +37,7 @@ const baseUrl = import.meta.env.BASE_URL;
     />
     <meta
       property="og:image"
-      content={`${siteUrl}favicon.png`}
+      content={`${siteUrl}saw-favicon-xl.png`}
     />
     <meta property="og:url" content={siteUrl} />
     <meta property="og:type" content="website" />
@@ -72,14 +70,6 @@ const baseUrl = import.meta.env.BASE_URL;
 </html>
 
 <style is:global>
-  @font-face {
-    font-family: "Montserrat Variable";
-    src: url("/AELSA-Portfolio/fonts/montserrat-latin-wght-normal.woff2")
-      format("woff2-variations");
-    font-weight: 100 900;
-    font-style: normal;
-    font-display: swap;
-  }
 
   :root {
     --background: #101010;
