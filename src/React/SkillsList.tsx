@@ -1,5 +1,9 @@
 import { useState } from "react";
 
+const baseUrl = import.meta.env.BASE_URL.endsWith("/")
+  ? import.meta.env.BASE_URL
+  : `${import.meta.env.BASE_URL}/`;
+
 const CategoryIcons = {
   "Web Development": (
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-app-window-mac text-[var(--sec)]"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="M6 8h.01"/><path d="M10 8h.01"/><path d="M14 8h.01"/></svg>
@@ -14,15 +18,15 @@ const CategoryIcons = {
 
 const RoleLogos: Record<string, { src: string; alt: string }> = {
   "Web Director": {
-    src: "/AELSA-Portfolio/images/asus-logo.png?v=2",
+    src: `${baseUrl}images/asus-logo.png?v=2`,
     alt: "ASUS",
   },
   "Logistics Officer": {
-    src: "/AELSA-Portfolio/images/qhacks-logo.png?v=1",
+    src: `${baseUrl}images/qhacks-logo.png?v=1`,
     alt: "QHacks",
   },
   "Club President": {
-    src: "/AELSA-Portfolio/images/club-president-logo.png?v=1",
+    src: `${baseUrl}images/club-president-logo.png?v=1`,
     alt: "Club President organization",
   },
 };
