@@ -3,9 +3,13 @@ import { defineConfig } from "astro/config";
 import tailwind from "@astrojs/tailwind";
 import react from "@astrojs/react";
 
+const isVercel = process.env.VERCEL === "1";
+
 export default defineConfig({
-  site: "https://ahmedsawwah.github.io",
-  base: "/AELSA-Portfolio",
+  site: isVercel
+    ? "https://aelsa-portfolio.vercel.app"
+    : "https://ahmedsawwah.github.io",
+  base: isVercel ? "/" : "/AELSA-Portfolio",
   integrations: [tailwind(), react()],
   vite: {
     resolve: {
