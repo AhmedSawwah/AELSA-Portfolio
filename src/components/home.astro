@@ -173,7 +173,6 @@ const baseUrl = rawBaseUrl.endsWith("/") ? rawBaseUrl : `${rawBaseUrl}/`;
     place-items: center;
     border-radius: 50%;
     isolation: isolate;
-    box-shadow: 0 0 30px rgba(88, 179, 104, 0.16);
   }
 
   .profile-photo-frame::before {
@@ -182,15 +181,15 @@ const baseUrl = rawBaseUrl.endsWith("/") ? rawBaseUrl : `${rawBaseUrl}/`;
     border-radius: inherit;
     background: conic-gradient(
       #58b368 0deg 48deg,
-      var(--background) 48deg 61deg,
+      transparent 48deg 61deg,
       #73c982 61deg 126deg,
-      var(--background) 126deg 141deg,
+      transparent 126deg 141deg,
       #3f8f4d 141deg 205deg,
-      var(--background) 205deg 221deg,
+      transparent 205deg 221deg,
       #8bdd99 221deg 282deg,
-      var(--background) 282deg 297deg,
+      transparent 282deg 297deg,
       #58b368 297deg 347deg,
-      var(--background) 347deg 360deg
+      transparent 347deg 360deg
     );
     content: "";
     animation: profile-ring-spin 10s linear infinite;
