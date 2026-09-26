@@ -177,16 +177,26 @@ const baseUrl = rawBaseUrl.endsWith("/") ? rawBaseUrl : `${rawBaseUrl}/`;
     inset: 0;
     border-radius: inherit;
     background: conic-gradient(
-      #58b368 0deg 48deg,
-      transparent 48deg 61deg,
-      #73c982 61deg 126deg,
-      transparent 126deg 141deg,
-      #3f8f4d 141deg 205deg,
-      transparent 205deg 221deg,
-      #8bdd99 221deg 282deg,
-      transparent 282deg 297deg,
-      #58b368 297deg 347deg,
-      transparent 347deg 360deg
+      #58b368 0deg 29deg,
+      transparent 29deg 36deg,
+      #73c982 36deg 65deg,
+      transparent 65deg 72deg,
+      #3f8f4d 72deg 101deg,
+      transparent 101deg 108deg,
+      #8bdd99 108deg 137deg,
+      transparent 137deg 144deg,
+      #58b368 144deg 173deg,
+      transparent 173deg 180deg,
+      #73c982 180deg 209deg,
+      transparent 209deg 216deg,
+      #3f8f4d 216deg 245deg,
+      transparent 245deg 252deg,
+      #8bdd99 252deg 281deg,
+      transparent 281deg 288deg,
+      #58b368 288deg 317deg,
+      transparent 317deg 324deg,
+      #73c982 324deg 353deg,
+      transparent 353deg 360deg
     );
     content: "";
     animation: profile-ring-spin 10s linear infinite;
@@ -195,10 +205,10 @@ const baseUrl = rawBaseUrl.endsWith("/") ? rawBaseUrl : `${rawBaseUrl}/`;
   .profile-photo-inner {
     position: relative;
     z-index: 1;
-    width: calc(100% - 14px);
-    height: calc(100% - 14px);
+    width: calc(100% - 10px);
+    height: calc(100% - 10px);
     overflow: hidden;
-    border: 4px solid var(--background);
+    border: 2px solid var(--background);
     border-radius: 50%;
     background: var(--background);
   }
