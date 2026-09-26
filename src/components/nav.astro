@@ -53,6 +53,25 @@ const navItems: NavItem[] = [
   />
 </a>
 
+<button
+  id="mobile-menu-toggle"
+  class="mobile-menu-toggle"
+  type="button"
+  aria-label="Open navigation menu"
+  aria-controls="main-nav"
+  aria-expanded="false"
+>
+  <svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+    <path d="M4 7h16"></path>
+    <path d="M4 12h16"></path>
+    <path d="M4 17h16"></path>
+  </svg>
+  <svg class="close-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+    <path d="M6 6l12 12"></path>
+    <path d="M18 6L6 18"></path>
+  </svg>
+</button>
+
 <div class="flex justify-center w-full">
   <nav
     id="main-nav"
@@ -118,31 +137,157 @@ const navItems: NavItem[] = [
     color: white !important;
   }
 
+  .mobile-menu-toggle {
+    display: none;
+  }
+
   @media (max-width: 767px) {
-    nav {
-      width: 100% !important;
-      transform: translateX(-50%);
-      bottom: 0;
-      left: 50%;
+    .mobile-menu-toggle {
       position: fixed;
-      border-radius: 1rem 1rem 0 0;
-      border-color: #ffffff10;
+      top: 1rem;
+      right: 1rem;
+      z-index: 102;
+      display: flex;
+      width: 44px;
+      height: 44px;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #ffffff18;
+      border-radius: 8px;
+      background: rgba(16, 16, 16, 0.94);
+      color: var(--white-icon);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
+      backdrop-filter: blur(14px);
+      transition:
+        border-color 0.2s ease,
+        color 0.2s ease,
+        background-color 0.2s ease;
     }
 
-    nav.scrolling {
-      border-radius: 1rem 1rem 0 0;
-      background-color: var(--component-bg);
+    .mobile-menu-toggle:hover,
+    .mobile-menu-toggle:focus-visible {
+      border-color: #58b36880;
+      color: #73c982;
+      outline: none;
     }
 
-    body {
-      padding-bottom: 70px;
+    .mobile-menu-toggle .close-icon {
+      display: none;
+    }
+
+    .mobile-menu-toggle[aria-expanded="true"] .menu-icon {
+      display: none;
+    }
+
+    .mobile-menu-toggle[aria-expanded="true"] .close-icon {
+      display: block;
+    }
+
+    #main-nav {
+      position: fixed;
+      top: 4.75rem;
+      right: 1rem;
+      bottom: auto;
+      left: auto;
+      width: min(240px, calc(100vw - 2rem)) !important;
+      max-width: 240px;
+      border-color: #ffffff14;
+      border-radius: 8px;
+      background: rgba(16, 16, 16, 0.96);
+      box-shadow: 0 18px 44px rgba(0, 0, 0, 0.38);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transform: translateY(-8px);
+      transition:
+        opacity 0.2s ease,
+        transform 0.2s ease,
+        visibility 0.2s ease;
+    }
+
+    #main-nav.mobile-open {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    #main-nav.scrolling {
+      border-radius: 8px;
+      background: rgba(16, 16, 16, 0.96);
+    }
+
+    #main-nav > div {
+      padding: 0.5rem;
+    }
+
+    #main-nav ul {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 0.25rem;
+    }
+
+    #main-nav a {
+      flex-direction: row;
+      justify-content: flex-start;
+      gap: 0.75rem;
+      padding: 0.75rem;
+      border-radius: 8px;
+      font-size: 0.875rem;
+    }
+
+    #main-nav a:hover,
+    #main-nav a.active {
+      background: rgba(88, 179, 104, 0.1);
+      color: #73c982 !important;
     }
   }
 </style>
 
 <script>
   const nav = document.getElementById("main-nav");
+  const mobileMenuToggle = document.getElementById("mobile-menu-toggle");
   let rafId: number | null = null;
+
+  function setMobileMenu(open: boolean) {
+    nav?.classList.toggle("mobile-open", open);
+    mobileMenuToggle?.setAttribute("aria-expanded", String(open));
+    mobileMenuToggle?.setAttribute(
+      "aria-label",
+      open ? "Close navigation menu" : "Open navigation menu"
+    );
+  }
+
+  mobileMenuToggle?.addEventListener("click", () => {
+    setMobileMenu(!nav?.classList.contains("mobile-open"));
+  });
+
+  nav?.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => setMobileMenu(false));
+  });
+
+  document.addEventListener("click", (event) => {
+    const target = event.target as Node;
+    if (
+      nav?.classList.contains("mobile-open") &&
+      !nav.contains(target) &&
+      !mobileMenuToggle?.contains(target)
+    ) {
+      setMobileMenu(false);
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      setMobileMenu(false);
+      mobileMenuToggle?.focus();
+    }
+  });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth >= 768) {
+      setMobileMenu(false);
+    }
+  });
 
   function updateNav() {
     if (window.scrollY > 0) {
@@ -206,12 +351,6 @@ const navItems: NavItem[] = [
 </script>
 
 <style>
-  @media (max-width: 767px) {
-    body {
-      padding-bottom: 70px;
-    }
-  }
-
   nav a.active {
     color: white !important;
   }
