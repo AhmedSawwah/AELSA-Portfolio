@@ -1,0 +1,65 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Nav from "@/components/nav.astro";
+import Footer from "@/components/footer.astro";
+
+interface Thought {
+  title: string;
+  time: string;
+  date: string;
+  body: string;
+}
+
+const thoughts: Thought[] = [];
+---
+
+<Layout title="Thoughts | Ahmed El-Sawwah">
+  <Nav />
+
+  <main class="min-h-screen pt-32 pb-16 md:pt-36">
+    <section class="mx-auto w-full max-w-5xl" aria-labelledby="thoughts-title">
+      <h1
+        id="thoughts-title"
+        class="mb-10 text-center text-4xl font-semibold text-[#58b368] md:mb-12 md:text-5xl"
+      >
+        Thoughts
+      </h1>
+
+      {
+        thoughts.length > 0 ? (
+          <div class="space-y-6 md:space-y-8">
+            {thoughts.map((thought) => (
+              <article class="rounded-lg border border-[#58b3682e] bg-[#151a16] px-5 py-5 transition-colors hover:border-[#58b36866] md:px-7 md:py-6">
+                <header class="mb-4 flex flex-wrap items-center gap-3">
+                  <h2 class="text-xl font-semibold text-[var(--white)] md:text-2xl">
+                    {thought.title}
+                  </h2>
+                  <time class="rounded-full bg-[#58b3681f] px-3 py-1 text-sm font-semibold text-[#73c982]">
+                    {thought.time}
+                  </time>
+                  <span class="rounded-full bg-[#58b3681f] px-3 py-1 text-sm font-semibold text-[#73c982]">
+                    {thought.date}
+                  </span>
+                </header>
+                <p class="text-base leading-relaxed text-[var(--white-icon)] md:text-lg">
+                  {thought.body}
+                </p>
+              </article>
+            ))}
+          </div>
+        ) : (
+          <div class="rounded-lg border border-[#58b3682e] bg-[#151a16] px-6 py-12 text-center md:px-8 md:py-16">
+            <h2 class="text-xl font-semibold text-[var(--white)] md:text-2xl">
+              Thoughts coming soon
+            </h2>
+            <p class="mx-auto mt-3 max-w-xl text-base leading-relaxed text-[var(--white-icon)]">
+              Short notes, observations, and ideas will live here.
+            </p>
+          </div>
+        )
+      }
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
