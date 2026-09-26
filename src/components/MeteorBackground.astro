@@ -1,0 +1,152 @@
+---
+const seeded = (seed: number) => {
+  const value = Math.sin(seed * 12.9898) * 43758.5453;
+  return value - Math.floor(value);
+};
+
+const stars = Array.from({ length: 110 }, (_, index) => ({
+  x: seeded(index + 1) * 100,
+  y: seeded(index + 101) * 100,
+  size: 1 + Math.round(seeded(index + 201) * 1.4),
+  opacity: 0.18 + seeded(index + 301) * 0.42,
+  duration: 3.5 + seeded(index + 401) * 4,
+  delay: seeded(index + 501) * -7,
+}));
+
+const meteors = [
+  { top: -8, left: 112, delay: -1.2, duration: 8.5, scale: 0.9 },
+  { top: 8, left: 118, delay: -5.8, duration: 10.4, scale: 0.7 },
+  { top: -18, left: 88, delay: -3.4, duration: 12.2, scale: 1 },
+  { top: 24, left: 126, delay: -8.1, duration: 13.6, scale: 0.8 },
+  { top: -12, left: 72, delay: -10.5, duration: 15.1, scale: 0.65 },
+  { top: 42, left: 132, delay: -2.7, duration: 16.8, scale: 0.9 },
+  { top: -25, left: 104, delay: -13.3, duration: 18.4, scale: 0.75 },
+  { top: 15, left: 145, delay: -7.2, duration: 20.2, scale: 0.6 },
+];
+---
+
+<div class="meteor-background" aria-hidden="true">
+  <div class="star-field">
+    {
+      stars.map((star) => (
+        <span
+          class="star"
+          style={`--star-x: ${star.x}%; --star-y: ${star.y}%; --star-size: ${star.size}px; --star-opacity: ${star.opacity}; --star-duration: ${star.duration}s; --star-delay: ${star.delay}s;`}
+        />
+      ))
+    }
+  </div>
+
+  <div class="meteor-field">
+    {
+      meteors.map((meteor) => (
+        <span
+          class="meteor"
+          style={`--meteor-top: ${meteor.top}%; --meteor-left: ${meteor.left}%; --meteor-delay: ${meteor.delay}s; --meteor-duration: ${meteor.duration}s; --meteor-scale: ${meteor.scale};`}
+        />
+      ))
+    }
+  </div>
+</div>
+
+<style>
+  .meteor-background {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .star-field,
+  .meteor-field {
+    position: absolute;
+    inset: 0;
+  }
+
+  .star {
+    position: absolute;
+    top: var(--star-y);
+    left: var(--star-x);
+    width: var(--star-size);
+    height: var(--star-size);
+    border-radius: 50%;
+    background: rgba(255, 255, 255, var(--star-opacity));
+    box-shadow: 0 0 4px rgba(255, 255, 255, 0.16);
+    animation: star-twinkle var(--star-duration) ease-in-out var(--star-delay) infinite;
+  }
+
+  .meteor {
+    position: absolute;
+    top: var(--meteor-top);
+    left: var(--meteor-left);
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #d9ffe0;
+    box-shadow:
+      0 0 6px rgba(139, 221, 153, 0.9),
+      0 0 14px rgba(88, 179, 104, 0.55);
+    opacity: 0;
+    animation: meteor-fall var(--meteor-duration) linear var(--meteor-delay) infinite;
+  }
+
+  .meteor::after {
+    position: absolute;
+    top: 50%;
+    left: 1px;
+    width: 150px;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      rgba(217, 255, 224, 0.8),
+      rgba(115, 201, 130, 0.26) 42%,
+      transparent
+    );
+    content: "";
+    transform: translateY(-50%) rotate(-45deg) scaleX(var(--meteor-scale));
+    transform-origin: left center;
+  }
+
+  @keyframes star-twinkle {
+    0%,
+    100% {
+      opacity: 0.45;
+    }
+
+    50% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes meteor-fall {
+    0% {
+      opacity: 0;
+      transform: translate3d(0, 0, 0);
+    }
+
+    2% {
+      opacity: 1;
+    }
+
+    18% {
+      opacity: 0;
+      transform: translate3d(-125vw, 125vh, 0);
+    }
+
+    100% {
+      opacity: 0;
+      transform: translate3d(-125vw, 125vh, 0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .star {
+      animation: none;
+    }
+
+    .meteor {
+      display: none;
+    }
+  }
+</style>
