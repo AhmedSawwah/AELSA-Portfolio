@@ -2,6 +2,7 @@
 import Layout from "@/layouts/Layout.astro";
 import Nav from "@/components/nav.astro";
 import Footer from "@/components/footer.astro";
+import MeteorBackground from "@/components/MeteorBackground.astro";
 
 interface Thought {
   title: string;
@@ -14,9 +15,11 @@ const thoughts: Thought[] = [];
 ---
 
 <Layout title="Thoughts | Ahmed El-Sawwah">
+  <MeteorBackground />
   <Nav />
 
-  <main class="min-h-screen pt-32 pb-16 md:pt-36">
+  <div class="relative z-10">
+    <main class="min-h-screen pt-32 pb-16 md:pt-36">
     <section class="mx-auto w-full max-w-5xl" aria-labelledby="thoughts-title">
       <h1
         id="thoughts-title"
@@ -59,7 +62,8 @@ const thoughts: Thought[] = [];
         )
       }
     </section>
-  </main>
+    </main>
 
-  <Footer />
+    <Footer />
+  </div>
 </Layout>
