@@ -59,11 +59,13 @@ const navItems: NavItem[] = [
                 ]}
                 aria-current={item.label === "Thoughts" && isThoughtsPage ? "page" : undefined}
               >
-                <div class="absolute -left-6 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full transition-all duration-300 scale-0 opacity-0 bg-[#58b368] nav-indicator hidden md:block" />
                 <span class="md:hidden flex items-center justify-center w-6 h-6">
                   <fragment set:html={item.icon} />
                 </span>
-                <span class="hidden md:inline-block">{item.label}</span>
+                <span class="hidden items-center gap-2 md:inline-flex">
+                  <span class="nav-indicator h-2 w-2 shrink-0 rounded-full bg-[#58b368] opacity-0 transition-all duration-300" />
+                  <span>{item.label}</span>
+                </span>
                 <span class="md:hidden">{item.label}</span>
               </a>
             </li>
@@ -89,8 +91,12 @@ const navItems: NavItem[] = [
     border-radius: 9999px;
   }
 
+  .nav-indicator {
+    transform: scale(0);
+  }
+
   nav a.active .nav-indicator {
-    transform: translateY(-50%) scale(1);
+    transform: scale(1);
     opacity: 1;
   }
 
