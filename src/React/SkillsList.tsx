@@ -120,7 +120,7 @@ const SkillsList = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={(event) => event.stopPropagation()}
-                    className="mt-4 flex items-center justify-between gap-3 rounded-lg border border-[#00ff4166] bg-[#00ff4114] px-3 py-2.5 text-[#00ff41] transition-colors hover:border-[#00ff41b3] hover:bg-[#00ff4124]"
+                    className="mt-4 flex items-center justify-between gap-3 rounded-lg border border-[#58b36866] bg-[#58b36814] px-3 py-2.5 text-[#73c982] transition-colors hover:border-[#58b368b3] hover:bg-[#58b36824] hover:text-[#8bdd99]"
                     aria-label="Visit the ASUS website in a new tab"
                   >
                     <span className="flex min-w-0 items-center gap-2.5">
@@ -176,7 +176,7 @@ const SkillsList = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={(event) => event.stopPropagation()}
-                    className="mt-4 flex items-center justify-between gap-3 rounded-lg border border-[#00ff4166] bg-[#00ff4114] px-3 py-2.5 text-[#00ff41] transition-colors hover:border-[#00ff41b3] hover:bg-[#00ff4124]"
+                    className="mt-4 flex items-center justify-between gap-3 rounded-lg border border-[#58b36866] bg-[#58b36814] px-3 py-2.5 text-[#73c982] transition-colors hover:border-[#58b368b3] hover:bg-[#58b36824] hover:text-[#8bdd99]"
                     aria-label="View QHacks photo gallery in a new tab"
                   >
                     <span className="flex items-center gap-2.5">
