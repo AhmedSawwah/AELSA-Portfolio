@@ -122,17 +122,12 @@ const navItems: NavItem[] = [
 
 <script>
   const nav = document.getElementById("main-nav");
-  const maxScroll = 1000;
   let rafId: number | null = null;
 
   function updateNav() {
     if (window.scrollY > 0) {
       nav?.classList.add("scrolling");
 
-      const scrollProgress = Math.min(window.scrollY / maxScroll, 1);
-      const easeProgress = 1 - Math.pow(1 - scrollProgress, 4);
-
-      void easeProgress;
     } else {
       nav?.classList.remove("scrolling");
       nav?.style.setProperty("width", "80%");
