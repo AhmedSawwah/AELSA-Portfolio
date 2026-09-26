@@ -42,19 +42,19 @@ const navItems: NavItem[] = [
 <div class="flex justify-center w-full">
   <nav
     id="main-nav"
-    class="fixed left-1/2 -translate-x-1/2 z-[100] bg-[var(--background)] border border-1 border-transparent backdrop-blur-xl transition-all duration-500 ease-in-out md:top-6 md:bottom-auto bottom-0 w-[80%]"
+    class="fixed left-1/2 -translate-x-1/2 z-[100] bg-[var(--background)] border border-1 border-transparent backdrop-blur-xl transition-colors duration-300 ease-in-out md:top-6 md:bottom-auto bottom-0 w-[80%] max-w-[640px]"
   >
     <div class="container mx-auto flex justify-center items-center p-3">
       <ul
-        class="flex w-full justify-between md:space-x-6 md:justify-center md:gap-10 gap-2"
+        class="grid w-full grid-cols-4 items-start"
       >
         {
           navItems.map((item) => (
-            <li class="flex-1 md:flex-none">
+            <li class="min-w-0">
               <a
                 href={item.href}
                 class:list={[
-                  "flex flex-col items-center gap-1 text-[var(--white-icon)] transition-colors text-xs md:text-base relative group",
+                  "flex w-full flex-col items-center gap-1 text-[var(--white-icon)] transition-colors text-xs md:text-base relative group",
                   { active: item.label === "Thoughts" && isThoughtsPage },
                 ]}
                 aria-current={item.label === "Thoughts" && isThoughtsPage ? "page" : undefined}
@@ -132,13 +132,7 @@ const navItems: NavItem[] = [
       const scrollProgress = Math.min(window.scrollY / maxScroll, 1);
       const easeProgress = 1 - Math.pow(1 - scrollProgress, 4);
 
-      const minWidth = 640;
-      const maxWidth = window.innerWidth * 0.8;
-      const currentWidth = maxWidth - (maxWidth - minWidth) * easeProgress;
-
-      if (window.innerWidth >= 768) {
-        nav?.style.setProperty("width", `${currentWidth}px`);
-      }
+      void easeProgress;
     } else {
       nav?.classList.remove("scrolling");
       nav?.style.setProperty("width", "80%");
