@@ -166,7 +166,8 @@ const baseUrl = rawBaseUrl.endsWith("/") ? rawBaseUrl : `${rawBaseUrl}/`;
   }
   .profile-photo-frame {
     width: 220px;
-    aspect-ratio: 1;
+    height: 220px;
+    flex: none;
     border-radius: 50%;
     padding: 7px;
     background: conic-gradient(
@@ -201,6 +202,7 @@ const baseUrl = rawBaseUrl.endsWith("/") ? rawBaseUrl : `${rawBaseUrl}/`;
   @media (min-width: 768px) {
     .profile-photo-frame {
       width: 250px;
+      height: 250px;
     }
   }
 
