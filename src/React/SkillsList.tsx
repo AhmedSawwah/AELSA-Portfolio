@@ -332,7 +332,7 @@ const SkillsList = () => {
 
         .portfolio-experience__link:hover svg,
         .portfolio-experience__link:focus-visible svg {
-          color: #3f8f50;
+          color: #9ae5a7;
         }
 
         .portfolio-experience__link:hover,
