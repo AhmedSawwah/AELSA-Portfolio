@@ -128,7 +128,7 @@ const SkillsList = () => {
       </div>
 
       <style>{`
-        @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;800&display=swap");
+        @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap");
 
         .portfolio-experience,
         .portfolio-experience * {
@@ -144,7 +144,7 @@ const SkillsList = () => {
           margin: 0 0 32px;
           color: #f4efe7;
           font-size: clamp(2rem, 4vw, 2.65rem);
-          font-weight: 800;
+          font-weight: 600;
           line-height: 1;
           letter-spacing: 0;
         }
