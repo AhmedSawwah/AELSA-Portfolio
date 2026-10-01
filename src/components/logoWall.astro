@@ -154,8 +154,11 @@ const rows = [
   .technology-showcase {
     position: relative;
     left: 50%;
+    display: flex;
     width: min(1150px, calc(100vw - 2rem));
-    padding: 20px 0 12px;
+    min-height: 70vh;
+    align-items: center;
+    padding: 64px 0;
     transform: translateX(-50%);
   }
 
@@ -169,7 +172,7 @@ const rows = [
     align-items: center;
     justify-content: space-between;
     gap: 20px;
-    margin-bottom: 16px;
+    margin-bottom: 24px;
   }
 
   .technology-showcase__header h2 {
@@ -211,7 +214,7 @@ const rows = [
 
   .technology-showcase__marquee {
     display: grid;
-    gap: 7px;
+    gap: 14px;
     overflow: hidden;
     -webkit-mask-image: linear-gradient(
       to right,
@@ -230,7 +233,7 @@ const rows = [
   }
 
   .technology-showcase__row {
-    min-height: 42px;
+    min-height: 46px;
     overflow: hidden;
   }
 
@@ -319,11 +322,12 @@ const rows = [
 
   @media (max-width: 700px) {
     .technology-showcase {
-      padding-top: 12px;
+      min-height: 60vh;
+      padding: 48px 0;
     }
 
     .technology-showcase__header {
-      margin-bottom: 12px;
+      margin-bottom: 18px;
     }
 
     .technology-showcase__grid {
