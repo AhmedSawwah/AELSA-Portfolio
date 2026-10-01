@@ -5,7 +5,7 @@ const baseUrl = import.meta.env.BASE_URL.endsWith("/")
 const experiences = [
   {
     role: "Web Director",
-    tag: "ASUS",
+    date: "Sep 2025 - Apr 2026",
     organization: "Arts and Science Undergraduate Society (ASUS)",
     logo: {
       src: `${baseUrl}images/asus-logo.png?v=2`,
@@ -20,7 +20,7 @@ const experiences = [
   },
   {
     role: "Logistics Officer",
-    tag: "QHacks",
+    date: "Sep 2025 - Feb 2026",
     organization: "QHacks | Queen's University",
     logo: {
       src: `${baseUrl}images/qhacks-logo.png?v=1`,
@@ -33,8 +33,8 @@ const experiences = [
     ],
   },
   {
-    role: "Club President",
-    tag: "SABIS",
+    role: "Tech Club President",
+    date: "Sep 2023 - May 2024",
     organization: "SABIS",
     logo: {
       src: `${baseUrl}images/club-president-logo.png?v=1`,
@@ -69,8 +69,8 @@ const SkillsList = () => {
 
             <div className="portfolio-experience__header">
               <h3>{experience.role}</h3>
-              <span className="portfolio-experience__tag">
-                {experience.tag}
+              <span className="portfolio-experience__date">
+                {experience.date}
               </span>
             </div>
 
@@ -219,7 +219,7 @@ const SkillsList = () => {
           overflow-wrap: break-word;
         }
 
-        .portfolio-experience__tag {
+        .portfolio-experience__date {
           flex-shrink: 0;
           margin-top: 2px;
           padding: 6px 12px;
@@ -238,8 +238,8 @@ const SkillsList = () => {
           transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .portfolio-experience__card:hover .portfolio-experience__tag,
-        .portfolio-experience__card:focus-visible .portfolio-experience__tag {
+        .portfolio-experience__card:hover .portfolio-experience__date,
+        .portfolio-experience__card:focus-visible .portfolio-experience__date {
           transform: translateY(-2px) scale(1.05);
         }
 
@@ -296,7 +296,7 @@ const SkillsList = () => {
           .portfolio-experience__card,
           .portfolio-experience__logo,
           .portfolio-experience__logo::before,
-          .portfolio-experience__tag,
+          .portfolio-experience__date,
           .portfolio-experience__highlights {
             transition: none;
           }
@@ -305,8 +305,8 @@ const SkillsList = () => {
           .portfolio-experience__card:focus-visible,
           .portfolio-experience__card:hover .portfolio-experience__logo,
           .portfolio-experience__card:focus-visible .portfolio-experience__logo,
-          .portfolio-experience__card:hover .portfolio-experience__tag,
-          .portfolio-experience__card:focus-visible .portfolio-experience__tag {
+          .portfolio-experience__card:hover .portfolio-experience__date,
+          .portfolio-experience__card:focus-visible .portfolio-experience__date {
             transform: none;
           }
         }
