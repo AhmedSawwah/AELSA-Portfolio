@@ -6,6 +6,11 @@ const experiences = [
   {
     role: "Web Director",
     date: "Sep 2025 - Apr 2026",
+    link: {
+      href: "https://www.queensasus.com/",
+      label: "Website",
+      ariaLabel: "Visit the ASUS website",
+    },
     organization: "Arts and Science Undergraduate Society (ASUS)",
     logo: {
       src: `${baseUrl}images/asus-logo.png?v=2`,
@@ -21,6 +26,11 @@ const experiences = [
   {
     role: "Logistics Officer",
     date: "Sep 2025 - Feb 2026",
+    link: {
+      href: "https://capturedbyash10.pixieset.com/qhacksday01/",
+      label: "Gallery",
+      ariaLabel: "View the QHacks photo gallery",
+    },
     organization: "QHacks | Queen's University",
     logo: {
       src: `${baseUrl}images/qhacks-logo.png?v=1`,
@@ -35,6 +45,7 @@ const experiences = [
   {
     role: "Tech Club President",
     date: "Sep 2023 - May 2024",
+    link: null,
     organization: "SABIS",
     logo: {
       src: `${baseUrl}images/club-president-logo.png?v=1`,
@@ -69,9 +80,38 @@ const SkillsList = () => {
 
             <div className="portfolio-experience__header">
               <h3>{experience.role}</h3>
-              <span className="portfolio-experience__date">
-                {experience.date}
-              </span>
+              <div className="portfolio-experience__meta">
+                <span className="portfolio-experience__date">
+                  {experience.date}
+                </span>
+                {experience.link && (
+                  <a
+                    className="portfolio-experience__link"
+                    href={experience.link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={experience.link.ariaLabel}
+                  >
+                    <span>{experience.link.label}</span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="12"
+                      height="12"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M15 3h6v6" />
+                      <path d="M10 14 21 3" />
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                    </svg>
+                  </a>
+                )}
+              </div>
             </div>
 
             <p className="portfolio-experience__company">
@@ -225,6 +265,14 @@ const SkillsList = () => {
           overflow-wrap: break-word;
         }
 
+        .portfolio-experience__meta {
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+          justify-content: flex-end;
+          gap: 8px;
+        }
+
         .portfolio-experience__date {
           flex-shrink: 0;
           margin-top: 2px;
@@ -247,6 +295,43 @@ const SkillsList = () => {
         .portfolio-experience__card:hover .portfolio-experience__date,
         .portfolio-experience__card:focus-visible .portfolio-experience__date {
           transform: translateY(-2px) scale(1.05);
+        }
+
+        .portfolio-experience__link {
+          display: inline-flex;
+          flex-shrink: 0;
+          align-items: center;
+          gap: 5px;
+          margin-top: 2px;
+          padding: 6px 10px;
+          border: 1px solid #5b554d;
+          border-radius: 10px;
+          color: #f4efe7;
+          background: #242321;
+          box-shadow:
+            0 2px 8px rgba(0, 0, 0, 0.2),
+            inset 0 1px 0 rgba(255, 255, 255, 0.06);
+          font-size: 0.68rem;
+          font-weight: 800;
+          line-height: 1.65;
+          letter-spacing: 0.05em;
+          text-decoration: none;
+          text-transform: uppercase;
+          white-space: nowrap;
+          transition:
+            color 250ms ease,
+            border-color 250ms ease,
+            background 250ms ease,
+            transform 250ms ease;
+        }
+
+        .portfolio-experience__link:hover,
+        .portfolio-experience__link:focus-visible {
+          border-color: #aaa49b;
+          outline: none;
+          color: #131313;
+          background: #f3e7d1;
+          transform: translateY(-2px);
         }
 
         .portfolio-experience__company {
@@ -314,6 +399,7 @@ const SkillsList = () => {
           .portfolio-experience__logo,
           .portfolio-experience__logo::before,
           .portfolio-experience__date,
+          .portfolio-experience__link,
           .portfolio-experience__highlights {
             transition: none;
           }
@@ -323,7 +409,9 @@ const SkillsList = () => {
           .portfolio-experience__card:hover .portfolio-experience__logo,
           .portfolio-experience__card:focus-visible .portfolio-experience__logo,
           .portfolio-experience__card:hover .portfolio-experience__date,
-          .portfolio-experience__card:focus-visible .portfolio-experience__date {
+          .portfolio-experience__card:focus-visible .portfolio-experience__date,
+          .portfolio-experience__link:hover,
+          .portfolio-experience__link:focus-visible {
             transform: none;
           }
         }
