@@ -92,36 +92,40 @@ const baseUrl = rawBaseUrl.endsWith("/") ? rawBaseUrl : `${rawBaseUrl}/`;
             I study Computer Science at Queen’s University, specializing in Artificial Intelligence, with interests in machine learning, networking, and building full-stack systems. My interest in computer science began when a friend told me I could be hacked on unsecured public Wi-Fi. My first thought was, “How?” That question introduced me to basic networking concepts and sent me down a rabbit hole I’m still exploring today.
           </p>
 
-          <p class="about-reference__body">
+          <p class="about-reference__body about-reference__body--last">
             Outside of coding, I enjoy thought provoking games like chess, and learning about paradoxes. I’m drawn to anything involving strategy and psychology. Fun fact: I’ve memorized the flags of all 193 UN member countries, plus a few territories!
+            <a class="about-reference__thoughts" href={`${baseUrl}thoughts/`}>
+              <span>Inside My Mind</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M5 12h14"></path>
+                <path d="m13 6 6 6-6 6"></path>
+              </svg>
+            </a>
           </p>
 
-          <a class="about-reference__thoughts" href={`${baseUrl}thoughts/`}>
-            <span>Inside My Mind</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              aria-hidden="true"
-            >
-              <path d="M5 12h14"></path>
-              <path d="m13 6 6 6-6 6"></path>
-            </svg>
-          </a>
-
-          <div class="about-reference__divider"></div>
-
-          <p class="about-reference__label">Education</p>
+          <p class="about-reference__label about-reference__label--education">Education</p>
           <div class="about-reference__education">
             <div class="about-reference__education-card">
-              <div class="about-reference__education-logo" aria-hidden="true">
-                Q
+              <div class="about-reference__education-logo">
+                <img
+                  src={`${baseUrl}images/queens.png`}
+                  alt=""
+                  width="46"
+                  height="46"
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
               <div class="about-reference__education-info">
                 <strong>Queen’s University</strong>
@@ -132,8 +136,15 @@ const baseUrl = rawBaseUrl.endsWith("/") ? rawBaseUrl : `${rawBaseUrl}/`;
             </div>
 
             <div class="about-reference__education-card">
-              <div class="about-reference__education-logo" aria-hidden="true">
-                Q
+              <div class="about-reference__education-logo">
+                <img
+                  src={`${baseUrl}images/queens.png`}
+                  alt=""
+                  width="46"
+                  height="46"
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
               <div class="about-reference__education-info">
                 <strong>Queen’s University</strong>
@@ -322,25 +333,38 @@ const baseUrl = rawBaseUrl.endsWith("/") ? rawBaseUrl : `${rawBaseUrl}/`;
     letter-spacing: 0;
   }
 
+  .about-reference__body--last {
+    margin-bottom: 0;
+  }
+
   .about-reference__thoughts {
     display: inline-flex;
     align-items: center;
-    gap: 7px;
-    margin-top: 4px;
+    gap: 5px;
+    margin-left: 8px;
+    padding: 3px 8px;
+    border: 1px solid #58b36866;
+    border-radius: 8px;
     color: #73c982;
-    font-size: 0.82rem;
+    background: #58b36814;
+    font-size: 0.75rem;
     font-weight: 700;
     line-height: 1.4;
     text-decoration: none;
-    transition: color 200ms ease;
+    vertical-align: middle;
+    white-space: nowrap;
+    transition:
+      color 200ms ease,
+      border-color 200ms ease,
+      background 200ms ease;
   }
 
   .about-reference__thoughts:hover,
   .about-reference__thoughts:focus-visible {
+    border-color: #58b368b3;
     color: #9ae5a7;
+    background: #58b36824;
     outline: none;
-    text-decoration: underline;
-    text-underline-offset: 4px;
   }
 
   .about-reference__divider {
@@ -357,6 +381,10 @@ const baseUrl = rawBaseUrl.endsWith("/") ? rawBaseUrl : `${rawBaseUrl}/`;
     line-height: 1.4;
     letter-spacing: 0;
     text-transform: uppercase;
+  }
+
+  .about-reference__label--education {
+    margin-top: 16px;
   }
 
   .about-reference__education {
@@ -378,18 +406,17 @@ const baseUrl = rawBaseUrl.endsWith("/") ? rawBaseUrl : `${rawBaseUrl}/`;
 
   .about-reference__education-logo {
     display: grid;
+    width: 54px;
+    height: 54px;
+    flex: 0 0 54px;
+    place-items: center;
+  }
+
+  .about-reference__education-logo img {
+    display: block;
     width: 46px;
     height: 46px;
-    flex: 0 0 46px;
-    place-items: center;
-    border: 1px solid #b99545;
-    border-radius: 10px;
-    color: #f0c75e;
-    background: linear-gradient(145deg, #7a0019, #4f0011);
-    font-family: Georgia, serif;
-    font-size: 1.45rem;
-    font-weight: 700;
-    line-height: 1;
+    object-fit: contain;
   }
 
   .about-reference__education-info {
