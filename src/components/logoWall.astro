@@ -24,6 +24,11 @@ const rows = [
   technologies.slice(5, 10),
   technologies.slice(10),
 ];
+
+const marqueeRows = rows.map((row) => {
+  const copiesNeeded = Math.ceil(10 / row.length);
+  return Array.from({ length: copiesNeeded }, () => row).flat();
+});
 ---
 
 <section class="technology-showcase" data-technology-showcase>
@@ -73,7 +78,7 @@ const rows = [
 
     <div class="technology-showcase__marquee" data-technology-marquee>
       {
-        rows.map((row, rowIndex) => (
+        marqueeRows.map((row, rowIndex) => (
           <div class="technology-showcase__row">
             <div
               class:list={[
@@ -82,20 +87,31 @@ const rows = [
                 { "technology-showcase__track--slow": rowIndex === 2 },
               ]}
             >
-              {[...row, ...row].map((technology, index) => (
+              {[false, true].map((isClone) => (
                 <div
-                  class="technology-showcase__item"
-                  aria-hidden={index >= row.length ? "true" : "false"}
+                  class="technology-showcase__group"
+                  aria-hidden={isClone ? "true" : "false"}
                 >
-                  <img
-                    src={`${baseUrl}svg/${technology.key}.svg`}
-                    alt={index < row.length ? `${technology.label} logo` : ""}
-                    width="20"
-                    height="20"
-                    loading={index < row.length ? "eager" : "lazy"}
-                    decoding="async"
-                  />
-                  <span>{technology.label}</span>
+                  {row.map((technology, index) => {
+                    const isDuplicate = isClone || index >= rows[rowIndex].length;
+
+                    return (
+                      <div
+                        class="technology-showcase__item"
+                        aria-hidden={isDuplicate ? "true" : "false"}
+                      >
+                        <img
+                          src={`${baseUrl}svg/${technology.key}.svg`}
+                          alt={isDuplicate ? "" : `${technology.label} logo`}
+                          width="20"
+                          height="20"
+                          loading={isDuplicate ? "lazy" : "eager"}
+                          decoding="async"
+                        />
+                        <span>{technology.label}</span>
+                      </div>
+                    );
+                  })}
                 </div>
               ))}
             </div>
@@ -237,11 +253,17 @@ const rows = [
   .technology-showcase__track {
     display: flex;
     width: max-content;
-    min-width: 100%;
     align-items: center;
-    gap: 10px;
     animation: technology-marquee 28s linear infinite;
     will-change: transform;
+  }
+
+  .technology-showcase__group {
+    display: flex;
+    flex: 0 0 auto;
+    align-items: center;
+    gap: 10px;
+    padding-right: 10px;
   }
 
   .technology-showcase__track--reverse {
