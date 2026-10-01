@@ -88,10 +88,16 @@ const SkillsList = () => {
       </div>
 
       <style>{`
+        @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;800&display=swap");
+
+        .portfolio-experience,
+        .portfolio-experience * {
+          font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
         .portfolio-experience {
           width: 100%;
           color: #f4efe7;
-          font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         }
 
         .portfolio-experience__title {
@@ -231,8 +237,8 @@ const SkillsList = () => {
             inset 0 1px 0 rgba(255, 255, 255, 0.08);
           font-size: 0.68rem;
           font-weight: 800;
-          line-height: 1;
-          letter-spacing: 0;
+          line-height: 1.65;
+          letter-spacing: 0.05em;
           text-transform: uppercase;
           white-space: nowrap;
           transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
