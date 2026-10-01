@@ -303,45 +303,33 @@ const SkillsList = () => {
           align-items: center;
           gap: 5px;
           margin-top: 2px;
-          padding: 6px 10px;
-          border: 1px solid #5b554d;
-          border-radius: 10px;
-          color: #f4efe7;
-          background: #242321;
-          box-shadow:
-            0 2px 8px rgba(0, 0, 0, 0.2),
-            inset 0 1px 0 rgba(255, 255, 255, 0.06);
-          font-size: 0.68rem;
-          font-weight: 800;
-          line-height: 1.65;
-          letter-spacing: 0.05em;
+          padding: 3px 8px;
+          border: 1px solid #58b36866;
+          border-radius: 8px;
+          color: #73c982;
+          background: #58b36814;
+          font-size: 0.75rem;
+          font-weight: 700;
+          line-height: 1.4;
+          letter-spacing: 0;
           text-decoration: none;
-          text-transform: uppercase;
           white-space: nowrap;
           transition:
-            color 250ms ease,
-            border-color 250ms ease,
-            background 250ms ease,
-            transform 250ms ease;
+            color 200ms ease,
+            border-color 200ms ease,
+            background 200ms ease;
         }
 
         .portfolio-experience__link svg {
-          color: #73c982;
-          transition: color 250ms ease;
-        }
-
-        .portfolio-experience__link:hover svg,
-        .portfolio-experience__link:focus-visible svg {
-          color: #9ae5a7;
+          color: currentColor;
         }
 
         .portfolio-experience__link:hover,
         .portfolio-experience__link:focus-visible {
-          border-color: #aaa49b;
+          border-color: #58b368b3;
+          color: #9ae5a7;
+          background: #58b36824;
           outline: none;
-          color: #131313;
-          background: #f3e7d1;
-          transform: translateY(-2px);
         }
 
         .portfolio-experience__company {
