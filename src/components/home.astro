@@ -7,8 +7,8 @@ const baseUrl = rawBaseUrl.endsWith("/") ? rawBaseUrl : `${rawBaseUrl}/`;
 ---
 
 <section class="text-[var(--white)] mt-12 md:mt-0" id="home">
-  <div class="max-w-5xl mx-auto space-y-12 md:space-y-16 md:py-36 pb-14">
-    <div class="text-left space-y-4">
+  <div class="max-w-5xl mx-auto md:pt-36 pb-14">
+    <div class="text-left">
       <div class="flex w-full flex-col items-start gap-6 lg:w-[340px]">
         <div class="profile-photo-frame self-center" aria-hidden="true">
           <div class="profile-photo-inner">
@@ -172,7 +172,7 @@ const baseUrl = rawBaseUrl.endsWith("/") ? rawBaseUrl : `${rawBaseUrl}/`;
     <LogoWall />
 
     <div
-      class="relative left-1/2 w-[min(1150px,calc(100vw-2rem))] -translate-x-1/2 pt-3 md:pt-9"
+      class="relative left-1/2 w-[min(1150px,calc(100vw-2rem))] -translate-x-1/2 py-12 md:py-[72px]"
     >
       <SkillsList />
     </div>
@@ -285,7 +285,7 @@ const baseUrl = rawBaseUrl.endsWith("/") ? rawBaseUrl : `${rawBaseUrl}/`;
     position: relative;
     left: 50%;
     width: min(1150px, calc(100vw - 2rem));
-    margin-top: 64px;
+    padding: 36px 0 72px;
     transform: translateX(-50%);
   }
 
@@ -473,7 +473,7 @@ const baseUrl = rawBaseUrl.endsWith("/") ? rawBaseUrl : `${rawBaseUrl}/`;
 
   @media (max-width: 700px) {
     .about-reference {
-      margin-top: 48px;
+      padding: 30px 0 48px;
     }
 
     .about-reference__card {
