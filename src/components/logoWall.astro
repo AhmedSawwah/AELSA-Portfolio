@@ -3,68 +3,353 @@ const rawBaseUrl = import.meta.env.BASE_URL;
 const baseUrl = rawBaseUrl.endsWith("/") ? rawBaseUrl : `${rawBaseUrl}/`;
 
 const technologies = [
-  "astro",
-  "vue",
-  "react",
-  "typeScript",
-  "tailwindcss",
-  "next",
-  "nodejs",
-  "HTML5",
-  "CSS3",
-  "javaScript",
-  "git",
-  "supabase",
-  "mysql",
-  "bash",
+  { key: "astro", label: "Astro" },
+  { key: "vue", label: "Vue" },
+  { key: "react", label: "React" },
+  { key: "typeScript", label: "TypeScript" },
+  { key: "tailwindcss", label: "Tailwind CSS" },
+  { key: "next", label: "Next.js" },
+  { key: "nodejs", label: "Node.js" },
+  { key: "HTML5", label: "HTML5" },
+  { key: "CSS3", label: "CSS3" },
+  { key: "javaScript", label: "JavaScript" },
+  { key: "git", label: "Git" },
+  { key: "supabase", label: "Supabase" },
+  { key: "mysql", label: "MySQL" },
+  { key: "bash", label: "Bash" },
+];
+
+const rows = [
+  technologies.slice(0, 5),
+  technologies.slice(5, 10),
+  technologies.slice(10),
 ];
 ---
 
-<div class="relative overflow-x-hidden py-8">
-  <div class="pointer-events-none absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[var(--background)] to-transparent z-20"></div>
-  <div class="pointer-events-none absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[var(--background)] to-transparent z-20"></div>
-
-  <div class="flex animate-scroll w-max will-change-transform">
-    {
-      [...technologies, ...technologies].map((tech, index) => (
-        <div 
-          class="flex items-center gap-2 pr-12 md:pr-20 group transition-all duration-300"
-          aria-hidden={index >= technologies.length ? "true" : "false"}
+<section class="technology-showcase" data-technology-showcase>
+  <div class="technology-showcase__inner">
+    <header class="technology-showcase__header">
+      <h2>Technologies</h2>
+      <button
+        class="technology-showcase__toggle"
+        type="button"
+        aria-expanded="false"
+        data-technology-toggle
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
         >
-          <img
-            src={`${baseUrl}svg/${tech}.svg`}
-            alt={tech}
-            class="h-7 w-auto object-contain transition-transform group-hover:scale-110 opacity-60"
-            width="30"
-            height="30"
-            loading={index < technologies.length ? "eager" : "lazy"}
-            decoding="async"
-          />
-          <span class="text-lg font-medium text-[var(--white-icon)] whitespace-nowrap">
-            {tech.charAt(0).toUpperCase() + tech.slice(1)}
-          </span>
-        </div>
-      ))
-    }
+          <rect width="7" height="7" x="3" y="3" rx="1"></rect>
+          <rect width="7" height="7" x="14" y="3" rx="1"></rect>
+          <rect width="7" height="7" x="3" y="14" rx="1"></rect>
+          <rect width="7" height="7" x="14" y="14" rx="1"></rect>
+        </svg>
+        <span data-technology-toggle-label>View All</span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="14"
+          height="14"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <path d="m9 18 6-6-6-6"></path>
+        </svg>
+      </button>
+    </header>
+
+    <div class="technology-showcase__marquee" data-technology-marquee>
+      {
+        rows.map((row, rowIndex) => (
+          <div class="technology-showcase__row">
+            <div
+              class:list={[
+                "technology-showcase__track",
+                { "technology-showcase__track--reverse": rowIndex === 1 },
+                { "technology-showcase__track--slow": rowIndex === 2 },
+              ]}
+            >
+              {[...row, ...row].map((technology, index) => (
+                <div
+                  class="technology-showcase__item"
+                  aria-hidden={index >= row.length ? "true" : "false"}
+                >
+                  <img
+                    src={`${baseUrl}svg/${technology.key}.svg`}
+                    alt={index < row.length ? `${technology.label} logo` : ""}
+                    width="20"
+                    height="20"
+                    loading={index < row.length ? "eager" : "lazy"}
+                    decoding="async"
+                  />
+                  <span>{technology.label}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="technology-showcase__grid" data-technology-grid hidden>
+      {
+        technologies.map((technology) => (
+          <div class="technology-showcase__item">
+            <img
+              src={`${baseUrl}svg/${technology.key}.svg`}
+              alt={`${technology.label} logo`}
+              width="20"
+              height="20"
+              loading="lazy"
+              decoding="async"
+            />
+            <span>{technology.label}</span>
+          </div>
+        ))
+      }
+    </div>
   </div>
-</div>
+</section>
+
+<script>
+  document.querySelectorAll("[data-technology-showcase]").forEach((section) => {
+    const toggle = section.querySelector("[data-technology-toggle]");
+    const label = section.querySelector("[data-technology-toggle-label]");
+    const marquee = section.querySelector("[data-technology-marquee]");
+    const grid = section.querySelector("[data-technology-grid]");
+
+    if (!(toggle instanceof HTMLButtonElement) || !label || !marquee || !grid) {
+      return;
+    }
+
+    toggle.addEventListener("click", () => {
+      const expanded = toggle.getAttribute("aria-expanded") === "true";
+      toggle.setAttribute("aria-expanded", String(!expanded));
+      label.textContent = expanded ? "View All" : "Show Motion";
+      marquee.toggleAttribute("hidden", !expanded);
+      grid.toggleAttribute("hidden", expanded);
+    });
+  });
+</script>
 
 <style is:global>
-  @keyframes scroll {
-    0% {
+  .technology-showcase,
+  .technology-showcase * {
+    font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+
+  .technology-showcase {
+    position: relative;
+    left: 50%;
+    width: min(1150px, calc(100vw - 2rem));
+    padding: 20px 0 12px;
+    transform: translateX(-50%);
+  }
+
+  .technology-showcase__inner {
+    width: min(760px, 100%);
+  }
+
+  .technology-showcase__header {
+    display: flex;
+    min-height: 42px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 16px;
+  }
+
+  .technology-showcase__header h2 {
+    margin: 0;
+    color: #f4efe7;
+    font-size: clamp(1.55rem, 2.5vw, 1.95rem);
+    font-weight: 500;
+    line-height: 1.15;
+    letter-spacing: 0;
+  }
+
+  .technology-showcase__toggle {
+    display: inline-flex;
+    min-height: 36px;
+    flex: 0 0 auto;
+    align-items: center;
+    gap: 7px;
+    padding: 7px 9px;
+    border: 0;
+    border-radius: 8px;
+    color: #a9a39a;
+    background: transparent;
+    font-size: 0.78rem;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: 0;
+    cursor: pointer;
+    transition:
+      color 200ms ease,
+      background 200ms ease;
+  }
+
+  .technology-showcase__toggle:hover,
+  .technology-showcase__toggle:focus-visible {
+    color: #f4efe7;
+    background: #222222;
+    outline: none;
+  }
+
+  .technology-showcase__marquee {
+    display: grid;
+    gap: 7px;
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 5%,
+      black 95%,
+      transparent
+    );
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 5%,
+      black 95%,
+      transparent
+    );
+  }
+
+  .technology-showcase__row {
+    min-height: 42px;
+    overflow: hidden;
+  }
+
+  .technology-showcase__track {
+    display: flex;
+    width: max-content;
+    min-width: 100%;
+    align-items: center;
+    gap: 10px;
+    animation: technology-marquee 28s linear infinite;
+    will-change: transform;
+  }
+
+  .technology-showcase__track--reverse {
+    animation-direction: reverse;
+    animation-duration: 32s;
+  }
+
+  .technology-showcase__track--slow {
+    animation-duration: 35s;
+  }
+
+  .technology-showcase__item {
+    display: inline-flex;
+    min-width: 132px;
+    min-height: 40px;
+    flex: 0 0 auto;
+    align-items: center;
+    gap: 9px;
+    padding: 8px 11px;
+    border: 1px solid #2d2a26;
+    border-radius: 8px;
+    color: #c7bfb3;
+    background: #1a1a1a;
+    font-size: 0.86rem;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: 0;
+    white-space: nowrap;
+    transition:
+      color 200ms ease,
+      border-color 200ms ease,
+      background 200ms ease,
+      transform 200ms ease;
+  }
+
+  .technology-showcase__item:hover {
+    border-color: #59544c;
+    color: #f4efe7;
+    background: #222222;
+    transform: translateY(-2px);
+  }
+
+  .technology-showcase__item img {
+    display: block;
+    width: 20px;
+    height: 20px;
+    flex: 0 0 20px;
+    object-fit: contain;
+    opacity: 0.85;
+  }
+
+  .technology-showcase__grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .technology-showcase__grid:not([hidden]) {
+    display: grid;
+  }
+
+  .technology-showcase__grid .technology-showcase__item {
+    min-width: 0;
+    width: 100%;
+  }
+
+  @keyframes technology-marquee {
+    from {
       transform: translate3d(0, 0, 0);
     }
-    100% {
+
+    to {
       transform: translate3d(-50%, 0, 0);
     }
   }
-  .animate-scroll {
-    animation: scroll 60s linear infinite;
+
+  @media (max-width: 700px) {
+    .technology-showcase {
+      padding-top: 12px;
+    }
+
+    .technology-showcase__header {
+      margin-bottom: 12px;
+    }
+
+    .technology-showcase__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .technology-showcase__item {
+      min-width: 118px;
+      min-height: 38px;
+      padding: 7px 9px;
+      font-size: 0.8rem;
+    }
   }
 
-  @media (min-width: 768px) {
-    .animate-scroll {
-      animation-duration: 50s;
+  @media (prefers-reduced-motion: reduce) {
+    .technology-showcase__track {
+      animation-play-state: paused;
+    }
+
+    .technology-showcase__item,
+    .technology-showcase__toggle {
+      transition: none;
+    }
+
+    .technology-showcase__item:hover {
+      transform: none;
     }
   }
 </style>
