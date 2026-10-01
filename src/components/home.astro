@@ -282,8 +282,11 @@ const baseUrl = rawBaseUrl.endsWith("/") ? rawBaseUrl : `${rawBaseUrl}/`;
   }
 
   .about-reference {
-    width: min(760px, 100%);
+    position: relative;
+    left: 50%;
+    width: min(1150px, calc(100vw - 2rem));
     margin-top: 64px;
+    transform: translateX(-50%);
   }
 
   .about-reference__title {
@@ -296,6 +299,7 @@ const baseUrl = rawBaseUrl.endsWith("/") ? rawBaseUrl : `${rawBaseUrl}/`;
   }
 
   .about-reference__card {
+    width: min(760px, 100%);
     padding: 28px;
     border: 1px solid #3a352d;
     border-radius: 12px;
