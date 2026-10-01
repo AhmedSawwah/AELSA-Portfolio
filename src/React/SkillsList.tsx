@@ -325,6 +325,16 @@ const SkillsList = () => {
             transform 250ms ease;
         }
 
+        .portfolio-experience__link svg {
+          color: #73c982;
+          transition: color 250ms ease;
+        }
+
+        .portfolio-experience__link:hover svg,
+        .portfolio-experience__link:focus-visible svg {
+          color: #3f8f50;
+        }
+
         .portfolio-experience__link:hover,
         .portfolio-experience__link:focus-visible {
           border-color: #aaa49b;
