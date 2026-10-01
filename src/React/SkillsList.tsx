@@ -255,12 +255,23 @@ const SkillsList = () => {
 
         .portfolio-experience__highlights {
           margin: 0;
-          padding-left: 28px;
+          padding-left: 30px;
           color: #c7bfb3;
           font-size: 0.92rem;
           line-height: 1.7;
           letter-spacing: 0;
+          list-style-position: outside;
+          list-style-type: disc;
           transition: color 300ms ease;
+        }
+
+        .portfolio-experience__highlights li {
+          padding-left: 6px;
+        }
+
+        .portfolio-experience__highlights li::marker {
+          color: #f4efe7;
+          font-size: 0.82em;
         }
 
         .portfolio-experience__highlights li + li {
