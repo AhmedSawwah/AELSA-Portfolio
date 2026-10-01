@@ -1,231 +1,317 @@
-import { useState } from "react";
-
 const baseUrl = import.meta.env.BASE_URL.endsWith("/")
   ? import.meta.env.BASE_URL
   : `${import.meta.env.BASE_URL}/`;
 
-const CategoryIcons = {
-  "Web Development": (
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-app-window-mac text-[var(--sec)]"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="M6 8h.01"/><path d="M10 8h.01"/><path d="M14 8h.01"/></svg>
-  ),
-  "Mobile Development": (
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-tablet-smartphone text-[var(--sec)]"><rect width="10" height="14" x="3" y="8" rx="2"/><path d="M5 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2h-2.4"/><path d="M8 18h.01"/></svg>
-  ),
-  "UI/UX Design & Prototyping": (
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-spline-pointer text-[var(--sec)]"><path d="M12.034 12.681a.498.498 0 0 1 .647-.647l9 3.5a.5.5 0 0 1-.033.943l-3.444 1.068a1 1 0 0 0-.66.66l-1.067 3.443a.5.5 0 0 1-.943.033z"/><path d="M5 17A12 12 0 0 1 17 5"/><circle cx="19" cy="5" r="2"/><circle cx="5" cy="19" r="2"/></svg>
-  ),
-};
-
-const RoleLogos: Record<string, { src: string; alt: string }> = {
-  "Web Director": {
-    src: `${baseUrl}images/asus-logo.png?v=2`,
-    alt: "ASUS",
-  },
-  "Logistics Officer": {
-    src: `${baseUrl}images/qhacks-logo.png?v=1`,
-    alt: "QHacks",
-  },
-  "Club President": {
-    src: `${baseUrl}images/club-president-logo.png?v=1`,
-    alt: "Club President organization",
-  },
-};
-
-const SkillsList = () => {
-  const [openItem, setOpenItem] = useState<string | null>(null);
-
-  const skills = {
-    "Web Director": [
+const experiences = [
+  {
+    role: "Web Director",
+    tag: "ASUS",
+    organization: "Arts and Science Undergraduate Society (ASUS)",
+    logo: {
+      src: `${baseUrl}images/asus-logo.png?v=2`,
+      alt: "ASUS logo",
+    },
+    highlights: [
       "Implement website enhancements using Squarespace, HTML, CSS, JavaScript, and jQuery, including customized page layouts and third-party form integrations.",
       "Collaborate with a Co-Director and leaders across eight ASUS offices and commissions to publish accurate academic resources, financial information, event schedules, reports, and student-support content for 13,000+ students.",
       "Administer the TriHire recruitment platform to publish available positions, manage applications, and streamline student hiring processes.",
       "Optimize site navigation, search functionality, mobile responsiveness, and accessibility while troubleshooting technical issues and responding to website requests from ASUS teams.",
     ],
-    "Logistics Officer": [
-      "Served as Logistics Officer for QHacks, Queen’s University’s annual hackathon, supporting the planning and execution of its 11th edition with approximately 250 hackers.",
-      "Coordinated venue-related paperwork, event setup, meal logistics, sponsors and day-of operations to ensure the 3-day hackathon ran smoothly.",
+  },
+  {
+    role: "Logistics Officer",
+    tag: "QHacks",
+    organization: "QHacks | Queen's University",
+    logo: {
+      src: `${baseUrl}images/qhacks-logo.png?v=1`,
+      alt: "QHacks logo",
+    },
+    highlights: [
+      "Served as Logistics Officer for QHacks, Queen's University's annual hackathon, supporting the planning and execution of its 11th edition with approximately 250 hackers.",
+      "Coordinated venue-related paperwork, event setup, meal logistics, sponsors, and day-of operations to ensure the three-day hackathon ran smoothly.",
       "Worked with the organizing team to manage event flow, resolve logistical issues in real time, and support a positive experience for participants, organizers, and guests.",
     ],
-    "Club President": [
-      "Led the club’s flagship project, developing a web platform for Grades 9–12 students to select their grade level and enrolled courses to view personalized AMS and Periodic exam schedules, including test dates and times.",
+  },
+  {
+    role: "Club President",
+    tag: "SABIS",
+    organization: "SABIS",
+    logo: {
+      src: `${baseUrl}images/club-president-logo.png?v=1`,
+      alt: "SABIS logo",
+    },
+    highlights: [
+      "Led the club's flagship project, developing a web platform for Grades 9-12 students to select their grade level and enrolled courses to view personalized AMS and Periodic exam schedules, including test dates and times.",
       "Built the platform using HTML, CSS, JavaScript, and a Flask/Python backend, with a lightweight SQLite database to store and update course and exam schedule data.",
       "Created a simple admin dashboard for updating AMS and Periodic schedules, helping centralize exam information and reduce scheduling confusion for students.",
-      "Collaborated with the school’s IT department to provide on-call technical support for the ITL (institution’s test-taking system), troubleshooting issues in real time during exam periods.",
+      "Collaborated with the school's IT department to provide on-call technical support for the ITL (institution's test-taking system), troubleshooting issues in real time during exam periods.",
     ],
-  };
+  },
+];
 
-  const toggleItem = (item: string) => {
-    setOpenItem(openItem === item ? null : item);
-  };
-
+const SkillsList = () => {
   return (
-    <div className="text-left pt-3 md:pt-9">
-      <h3 className="text-[#58b368] text-2xl md:text-3xl font-semibold md:mb-6">
-        My Experience:
-      </h3>
-      <ul className="space-y-4 mt-4 text-lg">
-        {Object.entries(skills).map(([category, items]) => (
-          <li key={category} className="w-full">
-            <div
-              onClick={() => toggleItem(category)}
-              className="md:w-[400px] w-full bg-[#1414149c] rounded-2xl text-left hover:bg-opacity-80 transition-all border border-[var(--white-icon-tr)] cursor-pointer overflow-hidden"
-            >
-              <div className="flex items-center gap-3 p-4">
-                {RoleLogos[category] ? (
-                  <img
-                    src={RoleLogos[category].src}
-                    alt={RoleLogos[category].alt}
-                    className="w-12 h-9 object-contain flex-shrink-0"
-                  />
-                ) : (
-                  CategoryIcons[category as keyof typeof CategoryIcons]
-                )}
-                <div className="flex items-center gap-2 flex-grow justify-between">
-                  <div className="min-w-0 max-w-[200px] md:max-w-none overflow-hidden">
-                    <span className="block truncate text-[var(--white)] text-lg">
-                      {category}
-                    </span>
-                  </div>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    className={`w-6 h-6 text-[var(--white)] transform transition-transform flex-shrink-0 ${
-                      openItem === category ? "rotate-180" : ""
-                    }`}
-                  >
-                    <path d="M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"></path>
-                  </svg>
-                </div>
-              </div>
+    <section className="portfolio-experience" aria-labelledby="experience-heading">
+      <h2 id="experience-heading" className="portfolio-experience__title">
+        Experience
+      </h2>
 
-              <div
-                className={`transition-all duration-300 px-4 ${
-                  openItem === category
-                    ? "max-h-[1200px] pb-4 opacity-100"
-                    : "max-h-0 opacity-0"
-                }`}
-              >
-                <ul className="space-y-2 text-[var(--white-icon)] text-sm">
-                  {items.map((item, index) => (
-                    <div key={index} className="flex items-center">
-                      <span className="pl-1">•</span>
-                      <li className="pl-3">{item}</li>
-                    </div>
-                  ))}
-                </ul>
-                {category === "Web Director" && (
-                  <a
-                    href="https://www.queensasus.com/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={(event) => event.stopPropagation()}
-                    className="mt-4 flex items-center justify-between gap-3 rounded-lg border border-[#58b36866] bg-[#58b36814] px-3 py-2.5 text-[#73c982] transition-colors hover:border-[#58b368b3] hover:bg-[#58b36824] hover:text-[#8bdd99]"
-                    aria-label="Visit the ASUS website in a new tab"
-                  >
-                    <span className="flex min-w-0 items-center gap-2.5">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="20"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        aria-hidden="true"
-                        className="flex-shrink-0"
-                      >
-                        <circle cx="12" cy="12" r="10" />
-                        <path d="M2 12h20" />
-                        <path d="M12 2a15.3 15.3 0 0 1 0 20" />
-                        <path d="M12 2a15.3 15.3 0 0 0 0 20" />
-                      </svg>
-                      <span className="min-w-0">
-                        <span className="block text-sm font-medium">
-                          Visit ASUS Website
-                        </span>
-                        <span className="block truncate text-xs text-[var(--white-icon)]">
-                          queensasus.com
-                        </span>
-                      </span>
-                    </span>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="18"
-                      height="18"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      aria-hidden="true"
-                      className="flex-shrink-0"
-                    >
-                      <path d="M15 3h6v6" />
-                      <path d="M10 14 21 3" />
-                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                    </svg>
-                  </a>
-                )}
-                {category === "Logistics Officer" && (
-                  <a
-                    href="https://capturedbyash10.pixieset.com/qhacksday01/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={(event) => event.stopPropagation()}
-                    className="mt-4 flex items-center justify-between gap-3 rounded-lg border border-[#58b36866] bg-[#58b36814] px-3 py-2.5 text-[#73c982] transition-colors hover:border-[#58b368b3] hover:bg-[#58b36824] hover:text-[#8bdd99]"
-                    aria-label="View QHacks photo gallery in a new tab"
-                  >
-                    <span className="flex items-center gap-2.5">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="20"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        aria-hidden="true"
-                        className="flex-shrink-0"
-                      >
-                        <rect width="18" height="18" x="3" y="3" rx="2" />
-                        <circle cx="9" cy="9" r="2" />
-                        <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" />
-                      </svg>
-                      <span className="text-sm font-medium">
-                        View QHacks Gallery
-                      </span>
-                    </span>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="18"
-                      height="18"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      aria-hidden="true"
-                      className="flex-shrink-0"
-                    >
-                      <path d="M15 3h6v6" />
-                      <path d="M10 14 21 3" />
-                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                    </svg>
-                  </a>
-                )}
-              </div>
+      <div className="portfolio-experience__grid">
+        {experiences.map((experience) => (
+          <article
+            key={experience.role}
+            className="portfolio-experience__card"
+            tabIndex={0}
+          >
+            <div className="portfolio-experience__logo">
+              <img src={experience.logo.src} alt={experience.logo.alt} />
             </div>
-          </li>
+
+            <div className="portfolio-experience__header">
+              <h3>{experience.role}</h3>
+              <span className="portfolio-experience__tag">
+                {experience.tag}
+              </span>
+            </div>
+
+            <p className="portfolio-experience__company">
+              {experience.organization}
+            </p>
+
+            <ul className="portfolio-experience__highlights">
+              {experience.highlights.map((highlight) => (
+                <li key={highlight}>{highlight}</li>
+              ))}
+            </ul>
+          </article>
         ))}
-      </ul>
-    </div>
+      </div>
+
+      <style>{`
+        .portfolio-experience {
+          width: 100%;
+          color: #f4efe7;
+          font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        .portfolio-experience__title {
+          margin: 0 0 32px;
+          color: #f4efe7;
+          font-size: clamp(2rem, 4vw, 2.65rem);
+          font-weight: 800;
+          line-height: 1;
+          letter-spacing: 0;
+        }
+
+        .portfolio-experience__grid {
+          display: grid;
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          align-items: stretch;
+          gap: 22px;
+        }
+
+        .portfolio-experience__card {
+          position: relative;
+          min-width: 0;
+          overflow: hidden;
+          padding: 22px;
+          border: 1px solid #3a352d;
+          border-left: 4px solid #aaa49b;
+          border-radius: 20px;
+          outline: none;
+          background: linear-gradient(135deg, #1d1d1d 0%, #202020 100%);
+          box-shadow: 0 2px 12px rgba(0, 0, 0, 0.18);
+          transition:
+            transform 350ms cubic-bezier(0.4, 0, 0.2, 1),
+            border-color 350ms cubic-bezier(0.4, 0, 0.2, 1),
+            box-shadow 350ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .portfolio-experience__card:hover,
+        .portfolio-experience__card:focus-visible {
+          z-index: 1;
+          border-color: #8d877e;
+          transform: translateY(-8px);
+          box-shadow:
+            0 24px 64px rgba(0, 0, 0, 0.38),
+            0 0 0 1px #5b554d;
+        }
+
+        .portfolio-experience__card:focus-visible {
+          outline: 2px solid #f3e7d1;
+          outline-offset: 4px;
+        }
+
+        .portfolio-experience__logo {
+          position: relative;
+          display: grid;
+          width: 64px;
+          height: 64px;
+          margin-bottom: 18px;
+          overflow: hidden;
+          place-items: center;
+          border: 2px solid #3a352d;
+          border-radius: 16px;
+          background: linear-gradient(135deg, #222222 0%, #2a2927 100%);
+          box-shadow: 0 4px 16px rgba(0, 0, 0, 0.24);
+          transition:
+            transform 400ms cubic-bezier(0.4, 0, 0.2, 1),
+            border-color 400ms cubic-bezier(0.4, 0, 0.2, 1),
+            background 400ms cubic-bezier(0.4, 0, 0.2, 1),
+            box-shadow 400ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .portfolio-experience__logo::before {
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.15),
+            transparent
+          );
+          content: "";
+          transition: left 500ms ease;
+        }
+
+        .portfolio-experience__card:hover .portfolio-experience__logo::before,
+        .portfolio-experience__card:focus-visible .portfolio-experience__logo::before {
+          left: 100%;
+        }
+
+        .portfolio-experience__card:hover .portfolio-experience__logo,
+        .portfolio-experience__card:focus-visible .portfolio-experience__logo {
+          border-color: #827b72;
+          background: linear-gradient(135deg, #3f3b35 0%, #35322e 100%);
+          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.34);
+          transform: scale(1.1) rotate(5deg);
+        }
+
+        .portfolio-experience__logo img {
+          position: relative;
+          z-index: 1;
+          width: 80%;
+          height: 80%;
+          object-fit: contain;
+        }
+
+        .portfolio-experience__header {
+          display: flex;
+          flex-wrap: wrap;
+          align-items: flex-start;
+          justify-content: space-between;
+          gap: 10px 12px;
+          margin-bottom: 10px;
+        }
+
+        .portfolio-experience__header h3 {
+          flex: 1 1 190px;
+          min-width: 0;
+          margin: 0;
+          color: #f4efe7;
+          font-size: 1.18rem;
+          font-weight: 800;
+          line-height: 1.25;
+          letter-spacing: 0;
+          overflow-wrap: break-word;
+        }
+
+        .portfolio-experience__tag {
+          flex-shrink: 0;
+          margin-top: 2px;
+          padding: 6px 12px;
+          border-radius: 10px;
+          color: #f4efe7;
+          background: linear-gradient(135deg, #302f2d 0%, #252525 100%);
+          box-shadow:
+            0 2px 8px rgba(0, 0, 0, 0.2),
+            inset 0 1px 0 rgba(255, 255, 255, 0.08);
+          font-size: 0.68rem;
+          font-weight: 800;
+          line-height: 1;
+          letter-spacing: 0;
+          text-transform: uppercase;
+          white-space: nowrap;
+          transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .portfolio-experience__card:hover .portfolio-experience__tag,
+        .portfolio-experience__card:focus-visible .portfolio-experience__tag {
+          transform: translateY(-2px) scale(1.05);
+        }
+
+        .portfolio-experience__company {
+          margin: 10px 0 12px;
+          color: #f4efe7;
+          font-size: 0.98rem;
+          font-weight: 800;
+          line-height: 1.3;
+          letter-spacing: 0;
+          opacity: 0.95;
+        }
+
+        .portfolio-experience__highlights {
+          margin: 0;
+          padding-left: 28px;
+          color: #c7bfb3;
+          font-size: 0.92rem;
+          line-height: 1.7;
+          letter-spacing: 0;
+          transition: color 300ms ease;
+        }
+
+        .portfolio-experience__highlights li + li {
+          margin-top: 10px;
+        }
+
+        .portfolio-experience__card:hover .portfolio-experience__highlights,
+        .portfolio-experience__card:focus-visible .portfolio-experience__highlights {
+          color: #e0d8cc;
+        }
+
+        @media (max-width: 1050px) {
+          .portfolio-experience__grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+          }
+        }
+
+        @media (max-width: 700px) {
+          .portfolio-experience__title {
+            margin-bottom: 24px;
+          }
+
+          .portfolio-experience__grid {
+            grid-template-columns: 1fr;
+          }
+
+          .portfolio-experience__card {
+            padding: 20px;
+          }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .portfolio-experience__card,
+          .portfolio-experience__logo,
+          .portfolio-experience__logo::before,
+          .portfolio-experience__tag,
+          .portfolio-experience__highlights {
+            transition: none;
+          }
+
+          .portfolio-experience__card:hover,
+          .portfolio-experience__card:focus-visible,
+          .portfolio-experience__card:hover .portfolio-experience__logo,
+          .portfolio-experience__card:focus-visible .portfolio-experience__logo,
+          .portfolio-experience__card:hover .portfolio-experience__tag,
+          .portfolio-experience__card:focus-visible .portfolio-experience__tag {
+            transform: none;
+          }
+        }
+      `}</style>
+    </section>
   );
 };
 
