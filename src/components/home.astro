@@ -6,7 +6,7 @@ const rawBaseUrl = import.meta.env.BASE_URL;
 const baseUrl = rawBaseUrl.endsWith("/") ? rawBaseUrl : `${rawBaseUrl}/`;
 ---
 
-<section class="text-[var(--white)] mt-12 md:mt-0" id="home">
+<section class="text-[var(--white)]" id="home">
   <div class="max-w-5xl mx-auto pb-14">
     <div class="text-left">
       <header class="intro-reference" aria-labelledby="intro-heading">
@@ -103,7 +103,7 @@ const baseUrl = rawBaseUrl.endsWith("/") ? rawBaseUrl : `${rawBaseUrl}/`;
         </div>
       </section>
 
-      <section class="about-reference" aria-labelledby="about-heading">
+      <section id="about" class="about-reference" aria-labelledby="about-heading">
         <h2 id="about-heading" class="about-reference__title">About Me</h2>
 
         <div class="about-reference__grid">
@@ -279,6 +279,7 @@ const baseUrl = rawBaseUrl.endsWith("/") ? rawBaseUrl : `${rawBaseUrl}/`;
     <LogoWall />
 
     <div
+      id="experience"
       class="relative left-1/2 w-[min(1150px,calc(100vw-2rem))] -translate-x-1/2 py-12 md:py-[72px]"
     >
       <SkillsList />
