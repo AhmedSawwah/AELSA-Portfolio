@@ -12,15 +12,9 @@ const baseUrl = rawBaseUrl.endsWith("/") ? rawBaseUrl : `${rawBaseUrl}/`;
       <header class="intro-reference" aria-labelledby="intro-heading">
         <div class="intro-reference__layout">
           <div class="intro-reference__left">
-            <p class="intro-reference__kicker">
-              Computer Science @ Queen’s University • Artificial Intelligence Specialization
-            </p>
             <h1 id="intro-heading" class="intro-reference__title">
               Ahmed El-Sawwah
             </h1>
-            <p class="intro-reference__subtitle">
-              Software Developer · AI & Data Enthusiast
-            </p>
             <p class="intro-reference__description">
               Full-stack software developer and AI/ML engineer with experience building
               end-to-end applications, designing scalable backend systems, and creating
@@ -97,7 +91,7 @@ const baseUrl = rawBaseUrl.endsWith("/") ? rawBaseUrl : `${rawBaseUrl}/`;
       </header>
 
       <section id="about" class="about-reference" aria-labelledby="about-heading">
-        <h2 id="about-heading" class="about-reference__title">About Me</h2>
+        <h2 id="about-heading" class="about-reference__title section-title-gradient">About Me</h2>
 
         <div class="about-reference__grid">
           <article class="about-reference__card">
@@ -320,16 +314,6 @@ const baseUrl = rawBaseUrl.endsWith("/") ? rawBaseUrl : `${rawBaseUrl}/`;
 <style is:global>
   @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap");
 
-  @font-face {
-    font-family: "Quick Kiss";
-    src:
-      url("/fonts/QuickKissPersonalUse-PxlZ.ttf") format("truetype"),
-      url("/AELSA-Portfolio/fonts/QuickKissPersonalUse-PxlZ.ttf") format("truetype");
-    font-display: swap;
-    font-style: normal;
-    font-weight: 400;
-  }
-
   .shiny-sec {
     background: linear-gradient(135deg, #a476ff 25%, #eee5ff 50%, #a476ff 75%);
     background-size: 400% 100%;
@@ -451,17 +435,17 @@ const baseUrl = rawBaseUrl.endsWith("/") ? rawBaseUrl : `${rawBaseUrl}/`;
     width: max-content;
     max-width: 100%;
     margin-top: 18px;
-    overflow: hidden;
+    padding-right: 2.5rem;
     border-right: 2px solid #73c982;
     color: #73c982;
-    font-family: "Quick Kiss", "Segoe Script", "Brush Script MT", cursive;
-    font-size: 1.5rem;
+    font-family: "Geraldine", "Segoe Script", "Brush Script MT", cursive;
+    font-size: 1.85rem;
+    font-style: italic;
+    font-weight: 400;
     line-height: 1.65;
     letter-spacing: 0;
     white-space: nowrap;
-    animation:
-      intro-signature-typing 2.4s steps(15) 300ms both,
-      intro-signature-blink 700ms step-end infinite;
+    animation: intro-signature-blink 700ms step-end infinite;
   }
 
   .intro-reference__socials {
@@ -524,16 +508,6 @@ const baseUrl = rawBaseUrl.endsWith("/") ? rawBaseUrl : `${rawBaseUrl}/`;
     object-position: center;
   }
 
-  @keyframes intro-signature-typing {
-    from {
-      width: 0;
-    }
-
-    to {
-      width: 15ch;
-    }
-  }
-
   @keyframes intro-signature-blink {
     50% {
       border-color: transparent;
@@ -562,7 +536,8 @@ const baseUrl = rawBaseUrl.endsWith("/") ? rawBaseUrl : `${rawBaseUrl}/`;
     }
 
     .intro-reference__signature {
-      font-size: 1.25rem;
+      padding-right: 1.5rem;
+      font-size: 1.5rem;
     }
   }
 

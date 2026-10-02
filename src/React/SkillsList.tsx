@@ -63,7 +63,7 @@ const experiences = [
 const SkillsList = () => {
   return (
     <section className="portfolio-experience" aria-labelledby="experience-heading">
-      <h2 id="experience-heading" className="portfolio-experience__title">
+      <h2 id="experience-heading" className="portfolio-experience__title section-title-gradient">
         Experience
       </h2>
 

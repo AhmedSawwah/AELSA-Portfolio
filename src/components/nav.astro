@@ -37,12 +37,7 @@ const navItems: NavItem[] = [
       class="site-nav__brand"
       aria-label="Ahmed El-Sawwah home"
     >
-      <img
-        src={`${baseUrl}images/ahmed-signature.png`}
-        alt="Ahmed El-Sawwah"
-        width="373"
-        height="139"
-      />
+      <span>Ahmed El-Sawwah</span>
     </a>
 
     <button
@@ -128,7 +123,7 @@ const navItems: NavItem[] = [
 
   .site-nav__brand {
     display: flex;
-    width: 150px;
+    width: 190px;
     height: 52px;
     flex: 0 0 auto;
     align-items: center;
@@ -146,12 +141,16 @@ const navItems: NavItem[] = [
     transform: translateY(-1px);
   }
 
-  .site-nav__brand img {
+  .site-nav__brand span {
     display: block;
-    width: 145px;
-    max-height: 50px;
-    object-fit: contain;
-    object-position: left center;
+    color: #73c982;
+    font-family: "Geraldine", "Segoe Script", "Brush Script MT", cursive;
+    font-size: 1.8rem;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: 0;
+    white-space: nowrap;
   }
 
   .site-nav__links {
@@ -205,11 +204,11 @@ const navItems: NavItem[] = [
 
   @media (max-width: 900px) {
     .site-nav__brand {
-      width: 138px;
+      width: 165px;
     }
 
-    .site-nav__brand img {
-      width: 132px;
+    .site-nav__brand span {
+      font-size: 1.55rem;
     }
 
     .site-nav__toggle {

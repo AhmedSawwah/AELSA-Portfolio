@@ -71,6 +71,16 @@ const siteUrl = new URL(
 
 <style is:global>
 
+  @font-face {
+    font-family: "Geraldine";
+    src:
+      url("/fonts/GeraldinePersonalUseItalic-PK12m.ttf") format("truetype"),
+      url("/AELSA-Portfolio/fonts/GeraldinePersonalUseItalic-PK12m.ttf") format("truetype");
+    font-display: swap;
+    font-style: italic;
+    font-weight: 400;
+  }
+
   :root {
     --background: #101010;
     --sec: #a476ff;
@@ -88,6 +98,15 @@ const siteUrl = new URL(
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+  }
+
+  .section-title-gradient {
+    width: fit-content;
+    background: linear-gradient(90deg, #3f8f4d 0%, #73c982 52%, #9ae5a7 100%);
+    background-clip: text;
+    color: transparent !important;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
   *::selection {
