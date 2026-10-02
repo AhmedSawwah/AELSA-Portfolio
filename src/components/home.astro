@@ -7,80 +7,101 @@ const baseUrl = rawBaseUrl.endsWith("/") ? rawBaseUrl : `${rawBaseUrl}/`;
 ---
 
 <section class="text-[var(--white)] mt-12 md:mt-0" id="home">
-  <div class="max-w-5xl mx-auto md:pt-36 pb-14">
+  <div class="max-w-5xl mx-auto pb-14">
     <div class="text-left">
-      <div class="flex w-full flex-col items-start gap-6 lg:w-[340px]">
-        <div class="profile-photo-frame self-center" aria-hidden="true">
-          <div class="profile-photo-inner">
-            <img
-              src={`${baseUrl}images/ahmed-profile.jpg`}
-              alt=""
-              width="720"
-              height="720"
-              class="h-full w-full object-cover"
-            />
+      <header class="intro-reference" aria-labelledby="intro-heading">
+        <div class="intro-reference__layout">
+          <div class="intro-reference__left">
+            <p class="intro-reference__kicker">
+              Computer Science @ Queen’s University • Artificial Intelligence Specialization
+            </p>
+            <h1 id="intro-heading" class="intro-reference__title">
+              Ahmed El-Sawwah
+            </h1>
+            <p class="intro-reference__subtitle">
+              Software Developer · AI & Data Enthusiast
+            </p>
+            <p class="intro-reference__description">
+              I build thoughtful full-stack systems and explore how artificial intelligence,
+              networking, and software can turn complex ideas into useful experiences.
+            </p>
+
+            <div class="intro-reference__buttons">
+              <a href="#projects" class="intro-reference__button">View My Work</a>
+              <a href="#contact" class="intro-reference__button">Get In Touch</a>
+              <a
+                href="#contact"
+                class="intro-reference__button"
+                aria-label="Request Ahmed’s resume"
+              >
+                My Resume
+              </a>
+            </div>
+
+            <div class="intro-reference__signature" aria-label="Ahmed El-Sawwah signature">
+              Ahmed El-Sawwah
+            </div>
+
+            <div class="intro-reference__socials" aria-label="Social links">
+              <a
+                href="https://www.linkedin.com/in/ahmed-elsawwah-bb22a130a"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="intro-reference__social"
+                aria-label="LinkedIn"
+              >
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M18.3362 18.339H15.6707V14.1622C15.6707 13.1662 15.6505 11.8845 14.2817 11.8845C12.892 11.8845 12.6797 12.9683 12.6797 14.0887V18.339H10.0142V9.75H12.5747V10.9207H12.6092C12.967 10.2457 13.837 9.53325 15.1367 9.53325C17.8375 9.53325 18.337 11.3108 18.337 13.6245V18.339H18.3362ZM7.00373 8.57475C6.14573 8.57475 5.45648 7.88025 5.45648 7.026C5.45648 6.1725 6.14648 5.47875 7.00373 5.47875C7.85873 5.47875 8.55173 6.1725 8.55173 7.026C8.55173 7.88025 7.85798 8.57475 7.00373 8.57475ZM8.34023 18.339H5.66723V9.75H8.34023V18.339ZM19.6697 3H4.32923C3.59498 3 3.00098 3.5805 3.00098 4.29675V19.7033C3.00098 20.4202 3.59498 21 4.32923 21H19.6675C20.401 21 21.001 20.4202 21.001 19.7033V4.29675C21.001 3.5805 20.401 3 19.6675 3H19.6697Z"></path>
+                </svg>
+              </a>
+              <a
+                href="https://github.com/AhmedSawwah"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="intro-reference__social"
+                aria-label="GitHub"
+              >
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M12.001 2C6.47598 2 2.00098 6.475 2.00098 12C2.00098 16.425 4.86348 20.1625 8.83848 21.4875C9.33848 21.575 9.52598 21.275 9.52598 21.0125C9.52598 20.775 9.51348 19.9875 9.51348 19.15C7.00098 19.6125 6.35098 18.5375 6.15098 17.975C6.03848 17.6875 5.55098 16.8 5.12598 16.5625C4.77598 16.375 4.27598 15.9125 5.11348 15.9C5.90098 15.8875 6.46348 16.625 6.65098 16.925C7.55098 18.4375 8.98848 18.0125 9.56348 17.75C9.65098 17.1 9.91348 16.6625 10.201 16.4125C7.97598 16.1625 5.65098 15.3 5.65098 11.475C5.65098 10.3875 6.03848 9.4875 6.67598 8.7875C6.57598 8.5375 6.22598 7.5125 6.77598 6.1375C6.77598 6.1375 7.61348 5.875 9.52598 7.1625C10.326 6.9375 11.176 6.825 12.026 6.825C12.876 6.825 13.726 6.9375 14.526 7.1625C16.4385 5.8625 17.276 6.1375 17.276 6.1375C17.826 7.5125 17.476 8.5375 17.376 8.7875C18.0135 9.4875 18.401 10.375 18.401 11.475C18.401 15.3125 16.0635 16.1625 13.8385 16.4125C14.201 16.725 14.5135 17.325 14.5135 18.2625C14.5135 19.6 14.501 20.675 14.501 21.0125C14.501 21.275 14.6885 21.5875 15.1885 21.4875C19.259 20.1133 21.9999 16.2963 22.001 12C22.001 6.475 17.526 2 12.001 2Z"></path>
+                </svg>
+              </a>
+              <a
+                href="mailto:aelsawwah@yahoo.com"
+                class="intro-reference__social"
+                aria-label="Email"
+              >
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="m18.73 5.41-1.28 1L12 10.46 6.55 6.37l-1.28-1A2 2 0 0 0 2 7.05v11.59A1.36 1.36 0 0 0 3.36 20h3.19v-7.72L12 16.37l5.45-4.09V20h3.19A1.36 1.36 0 0 0 22 18.64V7.05a2 2 0 0 0-3.27-1.64"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="intro-reference__right">
+            <div class="intro-reference__photo-wrap">
+              <img
+                src={`${baseUrl}images/ahmed-profile.jpg`}
+                alt="Portrait of Ahmed El-Sawwah"
+                class="intro-reference__photo"
+                width="720"
+                height="720"
+                fetchpriority="high"
+                decoding="async"
+              />
+            </div>
           </div>
         </div>
-        <h1
-          class="w-full text-[var(--white)] text-4xl md:text-5xl font-medium text-pretty leading-none"
-        >
-          Ahmed <br /> El-Sawwah
-        </h1>
-      </div>
-      <div class="flex justify-start gap-2 pt-3 md:pt-6">
-        <a
-          target="_blank"
-          href="https://github.com/AhmedSawwah"
-          aria-label="GitHub"
-          class="text-[var(--white-icon)] hover:text-white transition duration-300 ease-in-out border border-1 border-[var(--white-icon-tr)] p-3 rounded-xl bg-[#1414149c] hover:bg-[var(--white-icon-tr)]"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="currentColor"
-            class="size-8"
-          >
-            <path
-              d="M12.001 2C6.47598 2 2.00098 6.475 2.00098 12C2.00098 16.425 4.86348 20.1625 8.83848 21.4875C9.33848 21.575 9.52598 21.275 9.52598 21.0125C9.52598 20.775 9.51348 19.9875 9.51348 19.15C7.00098 19.6125 6.35098 18.5375 6.15098 17.975C6.03848 17.6875 5.55098 16.8 5.12598 16.5625C4.77598 16.375 4.27598 15.9125 5.11348 15.9C5.90098 15.8875 6.46348 16.625 6.65098 16.925C7.55098 18.4375 8.98848 18.0125 9.56348 17.75C9.65098 17.1 9.91348 16.6625 10.201 16.4125C7.97598 16.1625 5.65098 15.3 5.65098 11.475C5.65098 10.3875 6.03848 9.4875 6.67598 8.7875C6.57598 8.5375 6.22598 7.5125 6.77598 6.1375C6.77598 6.1375 7.61348 5.875 9.52598 7.1625C10.326 6.9375 11.176 6.825 12.026 6.825C12.876 6.825 13.726 6.9375 14.526 7.1625C16.4385 5.8625 17.276 6.1375 17.276 6.1375C17.826 7.5125 17.476 8.5375 17.376 8.7875C18.0135 9.4875 18.401 10.375 18.401 11.475C18.401 15.3125 16.0635 16.1625 13.8385 16.4125C14.201 16.725 14.5135 17.325 14.5135 18.2625C14.5135 19.6 14.501 20.675 14.501 21.0125C14.501 21.275 14.6885 21.5875 15.1885 21.4875C19.259 20.1133 21.9999 16.2963 22.001 12C22.001 6.475 17.526 2 12.001 2Z"
-            ></path>
-          </svg>
-        </a>
-        <a
-          target="_blank"
-          href="https://www.linkedin.com/in/ahmed-elsawwah-bb22a130a"
-          aria-label="LinkedIn"
-          class="text-[var(--white-icon)] hover:text-white transition duration-300 ease-in-out border border-1 border-[var(--white-icon-tr)] p-3 rounded-xl bg-[#1414149c] hover:bg-[var(--white-icon-tr)]"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="currentColor"
-            class="size-8"
-          >
-            <path
-              d="M18.3362 18.339H15.6707V14.1622C15.6707 13.1662 15.6505 11.8845 14.2817 11.8845C12.892 11.8845 12.6797 12.9683 12.6797 14.0887V18.339H10.0142V9.75H12.5747V10.9207H12.6092C12.967 10.2457 13.837 9.53325 15.1367 9.53325C17.8375 9.53325 18.337 11.3108 18.337 13.6245V18.339H18.3362ZM7.00373 8.57475C6.14573 8.57475 5.45648 7.88025 5.45648 7.026C5.45648 6.1725 6.14648 5.47875 7.00373 5.47875C7.85873 5.47875 8.55173 6.1725 8.55173 7.026C8.55173 7.88025 7.85798 8.57475 7.00373 8.57475ZM8.34023 18.339H5.66723V9.75H8.34023V18.339ZM19.6697 3H4.32923C3.59498 3 3.00098 3.5805 3.00098 4.29675V19.7033C3.00098 20.4202 3.59498 21 4.32923 21H19.6675C20.401 21 21.001 20.4202 21.001 19.7033V4.29675C21.001 3.5805 20.401 3 19.6675 3H19.6697Z"
-            ></path>
-          </svg>
-        </a>
-        <a
-          target="_blank"
-          href="mailto:aelsawwah@yahoo.com"
-          aria-label="Email"
-          class="text-[var(--white-icon)] hover:text-white transition duration-300 ease-in-out border border-1 border-[var(--white-icon-tr)] p-3 rounded-xl bg-[#1414149c] hover:bg-[var(--white-icon-tr)]"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="2.1em"
-            height="2.1em"
-            viewBox="0 0 24 24"
-          >
-            <path
-              fill="currentColor"
-              d="m18.73 5.41l-1.28 1L12 10.46L6.55 6.37l-1.28-1A2 2 0 0 0 2 7.05v11.59A1.36 1.36 0 0 0 3.36 20h3.19v-7.72L12 16.37l5.45-4.09V20h3.19A1.36 1.36 0 0 0 22 18.64V7.05a2 2 0 0 0-3.27-1.64"
-            ></path>
-          </svg>
-        </a>
-      </div>
+      </header>
+
+      <section class="intro-reference__now" aria-label="Current focus">
+        <div class="intro-reference__now-inner">
+          <span class="intro-reference__now-label">Now</span>
+          <p>
+            Studying Computer Science at Queen’s University • Exploring AI, networking,
+            and full-stack systems • Shipping constant improvements to my portfolio
+          </p>
+        </div>
+      </section>
 
       <section class="about-reference" aria-labelledby="about-heading">
         <h2 id="about-heading" class="about-reference__title">About Me</h2>
@@ -323,79 +344,285 @@ const baseUrl = rawBaseUrl.endsWith("/") ? rawBaseUrl : `${rawBaseUrl}/`;
       background-position: 0% 50%;
     }
   }
-  .profile-photo-frame {
+  .intro-reference,
+  .intro-reference * {
+    box-sizing: border-box;
+    font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+
+  .intro-reference {
     position: relative;
+    left: 50%;
     display: grid;
-    width: 220px;
-    height: 220px;
-    flex: none;
-    place-items: center;
-    border-radius: 50%;
-    isolation: isolate;
+    width: min(1150px, calc(100vw - 2rem));
+    min-height: clamp(460px, 64vh, 620px);
+    align-items: center;
+    padding: 20px 0 0;
+    transform: translateX(-50%);
   }
 
-  .profile-photo-frame::before {
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    background: conic-gradient(
-      #58b368 0deg 29deg,
-      transparent 29deg 36deg,
-      #73c982 36deg 65deg,
-      transparent 65deg 72deg,
-      #3f8f4d 72deg 101deg,
-      transparent 101deg 108deg,
-      #8bdd99 108deg 137deg,
-      transparent 137deg 144deg,
-      #58b368 144deg 173deg,
-      transparent 173deg 180deg,
-      #73c982 180deg 209deg,
-      transparent 209deg 216deg,
-      #3f8f4d 216deg 245deg,
-      transparent 245deg 252deg,
-      #8bdd99 252deg 281deg,
-      transparent 281deg 288deg,
-      #58b368 288deg 317deg,
-      transparent 317deg 324deg,
-      #73c982 324deg 353deg,
-      transparent 353deg 360deg
-    );
-    content: "";
-    animation: profile-ring-spin 10s linear infinite;
+  .intro-reference__layout {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 40px;
+    align-items: center;
   }
 
-  .profile-photo-inner {
+  .intro-reference__kicker {
+    margin: 0 0 10px;
+    color: #c7bfb3;
+    font-size: 0.75rem;
+    font-weight: 400;
+    line-height: 1.65;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .intro-reference__title {
+    margin: 0;
+    color: #f4efe7;
+    font-size: clamp(2.2rem, 5vw, 4.1rem);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+  }
+
+  .intro-reference__subtitle {
+    margin: 10px 0 0;
+    color: #c7bfb3;
+    font-size: 1.08rem;
+    font-weight: 400;
+    line-height: 1.65;
+    letter-spacing: 0;
+  }
+
+  .intro-reference__description {
+    max-width: 650px;
+    margin: 16px 0 0;
+    color: #c7bfb3;
+    font-size: 1.02rem;
+    font-weight: 400;
+    line-height: 1.7;
+    letter-spacing: -0.01em;
+  }
+
+  .intro-reference__buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 26px;
+  }
+
+  .intro-reference__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 16px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    color: #131313;
+    background: #f3e7d1;
+    font-size: 0.95rem;
+    font-weight: 700;
+    line-height: 1.65;
+    letter-spacing: 0;
+    text-decoration: none;
+    transition:
+      color 250ms ease,
+      background 250ms ease,
+      transform 250ms ease;
+  }
+
+  .intro-reference__button:hover {
+    color: #131313;
+    background: #d8c7ab;
+    transform: translateY(-2px);
+  }
+
+  .intro-reference__button:focus-visible {
+    outline: 2px solid #f3e7d1;
+    outline-offset: 2px;
+  }
+
+  .intro-reference__signature {
     position: relative;
-    z-index: 1;
-    width: calc(100% - 10px);
-    height: calc(100% - 10px);
+    width: max-content;
+    max-width: 100%;
+    margin-top: 18px;
     overflow: hidden;
-    border: 2px solid var(--background);
-    border-radius: 50%;
-    background: var(--background);
+    border-right: 2px solid #f4efe7;
+    color: #f4efe7;
+    font-family: "Segoe Script", "Brush Script MT", cursive;
+    font-size: 1.5rem;
+    line-height: 1.65;
+    letter-spacing: 0;
+    white-space: nowrap;
+    animation:
+      intro-signature-typing 2.4s steps(15) 300ms both,
+      intro-signature-blink 700ms step-end infinite;
   }
 
-  .profile-photo-inner img {
-    object-position: 50% 50%;
-    transform: scale(1.03);
+  .intro-reference__socials {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
   }
 
-  @keyframes profile-ring-spin {
+  .intro-reference__social {
+    display: grid;
+    width: 40px;
+    height: 40px;
+    place-items: center;
+    border: 1px solid #3a352d;
+    border-radius: 10px;
+    color: #f4efe7;
+    background: #1d1d1d;
+    text-decoration: none;
+    transition:
+      color 250ms ease,
+      border-color 250ms ease,
+      transform 250ms ease;
+  }
+
+  .intro-reference__social svg {
+    display: block;
+    width: 18px;
+    height: 18px;
+  }
+
+  .intro-reference__social:hover,
+  .intro-reference__social:focus-visible {
+    color: #f4efe7;
+    border-color: #f3e7d1;
+    outline: 2px solid #f3e7d1;
+    outline-offset: 2px;
+    transform: translateY(-2px);
+  }
+
+  .intro-reference__right {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .intro-reference__photo-wrap {
+    width: min(430px, 100%);
+    overflow: hidden;
+    aspect-ratio: 1 / 1;
+    border: 1px solid #3a352d;
+    border-radius: 24px;
+    background: #1d1d1d;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  }
+
+  .intro-reference__photo {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .intro-reference__now {
+    position: relative;
+    left: 50%;
+    width: min(1150px, calc(100vw - 2rem));
+    padding: 10px 0 6px;
+    transform: translateX(-50%);
+  }
+
+  .intro-reference__now-inner {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 14px;
+    border: 1px solid #3a352d;
+    border-radius: 999px;
+    background: #1d1d1d;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  }
+
+  .intro-reference__now-inner p {
+    margin: 0;
+    color: #c7bfb3;
+    font-size: 0.92rem;
+    font-weight: 400;
+    line-height: 1.65;
+    letter-spacing: 0;
+  }
+
+  .intro-reference__now-label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 10px;
+    border: 1px solid #3a352d;
+    border-radius: 999px;
+    color: #f4efe7;
+    background: #222222;
+    font-size: 0.74rem;
+    font-weight: 700;
+    line-height: 1.65;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  @keyframes intro-signature-typing {
+    from {
+      width: 0;
+    }
+
     to {
-      transform: rotate(360deg);
+      width: 15ch;
+    }
+  }
+
+  @keyframes intro-signature-blink {
+    50% {
+      border-color: transparent;
+    }
+  }
+
+  @media (max-width: 980px) {
+    .intro-reference__layout {
+      grid-template-columns: 1fr;
+    }
+
+    .intro-reference__right {
+      justify-content: flex-start;
+    }
+
+    .intro-reference__photo-wrap {
+      width: min(340px, 100%);
+    }
+
+    .intro-reference__now-inner {
+      flex-direction: column;
+      align-items: flex-start;
+      border-radius: 14px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .intro-reference__buttons {
+      align-items: stretch;
+      flex-direction: column;
+    }
+
+    .intro-reference__signature {
+      font-size: 1.25rem;
     }
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .profile-photo-frame::before {
-      animation: none;
+    .intro-reference__button,
+    .intro-reference__social {
+      transition: none;
     }
-  }
 
-  @media (min-width: 768px) {
-    .profile-photo-frame {
-      width: 250px;
-      height: 250px;
+    .intro-reference__signature {
+      width: auto;
+      border-right: 0;
+      animation: none;
     }
   }
 
