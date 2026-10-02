@@ -162,18 +162,6 @@ const baseUrl = rawBaseUrl.endsWith("/") ? rawBaseUrl : `${rawBaseUrl}/`;
             </div>
           </div>
 
-          <div class="about-reference__divider"></div>
-
-          <div class="about-reference__interests">
-            <p class="about-reference__label">Interests</p>
-            <div class="about-reference__interest-tags" aria-label="Interests">
-              <span>AI</span>
-              <span>Data Science</span>
-              <span>Software Engineering</span>
-              <span>Sports Analytics</span>
-              <span>Machine Learning</span>
-            </div>
-          </div>
           </article>
 
           <aside class="about-reference__photos" aria-labelledby="about-gallery-heading">
@@ -494,7 +482,7 @@ const baseUrl = rawBaseUrl.endsWith("/") ? rawBaseUrl : `${rawBaseUrl}/`;
     width: min(430px, 100%);
     overflow: hidden;
     aspect-ratio: 1 / 1;
-    border: 1px solid #3a352d;
+    border: 1px solid #73c982;
     border-radius: 24px;
     background: #1d1d1d;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
@@ -564,6 +552,7 @@ const baseUrl = rawBaseUrl.endsWith("/") ? rawBaseUrl : `${rawBaseUrl}/`;
     left: 50%;
     width: min(1150px, calc(100vw - 2rem));
     padding: 36px 0 72px;
+    border-bottom: 1px solid #ffffff10;
     transform: translateX(-50%);
   }
 
@@ -662,12 +651,6 @@ const baseUrl = rawBaseUrl.endsWith("/") ? rawBaseUrl : `${rawBaseUrl}/`;
     outline: none;
   }
 
-  .about-reference__divider {
-    height: 1px;
-    margin: 20px 0;
-    background: #3a352d;
-  }
-
   .about-reference__label {
     margin: 0 0 12px;
     color: #c7bfb3;
@@ -733,33 +716,6 @@ const baseUrl = rawBaseUrl.endsWith("/") ? rawBaseUrl : `${rawBaseUrl}/`;
     font-size: 0.75rem;
     font-weight: 400;
     line-height: 1.4;
-  }
-
-  .about-reference__interests {
-    display: grid;
-    gap: 10px;
-  }
-
-  .about-reference__interests .about-reference__label {
-    margin-bottom: 0;
-  }
-
-  .about-reference__interest-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-
-  .about-reference__interest-tags span {
-    padding: 6px 10px;
-    border: 1px solid #3a352d;
-    border-radius: 999px;
-    color: #f4efe7;
-    background: #222222;
-    font-size: 0.78rem;
-    font-weight: 400;
-    line-height: 1.4;
-    letter-spacing: 0;
   }
 
 
