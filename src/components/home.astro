@@ -22,8 +22,11 @@ const baseUrl = rawBaseUrl.endsWith("/") ? rawBaseUrl : `${rawBaseUrl}/`;
               Software Developer · AI & Data Enthusiast
             </p>
             <p class="intro-reference__description">
-              I build thoughtful full-stack systems and explore how artificial intelligence,
-              networking, and software can turn complex ideas into useful experiences.
+              Full-stack software developer and AI/ML engineer with experience building
+              end-to-end applications, designing scalable backend systems, and creating
+              intelligent features powered by machine learning. I enjoy turning complex
+              problems into practical, user-focused software that is reliable, efficient,
+              and easy to use.
             </p>
 
             <div class="intro-reference__buttons">
@@ -92,16 +95,6 @@ const baseUrl = rawBaseUrl.endsWith("/") ? rawBaseUrl : `${rawBaseUrl}/`;
           </div>
         </div>
       </header>
-
-      <section class="intro-reference__now" aria-label="Current focus">
-        <div class="intro-reference__now-inner">
-          <span class="intro-reference__now-label">Now</span>
-          <p>
-            Studying Computer Science at Queen’s University • Exploring AI, networking,
-            and full-stack systems • Shipping constant improvements to my portfolio
-          </p>
-        </div>
-      </section>
 
       <section id="about" class="about-reference" aria-labelledby="about-heading">
         <h2 id="about-heading" class="about-reference__title">About Me</h2>
@@ -327,6 +320,16 @@ const baseUrl = rawBaseUrl.endsWith("/") ? rawBaseUrl : `${rawBaseUrl}/`;
 <style is:global>
   @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap");
 
+  @font-face {
+    font-family: "Quick Kiss";
+    src:
+      url("/fonts/QuickKissPersonalUse-PxlZ.ttf") format("truetype"),
+      url("/AELSA-Portfolio/fonts/QuickKissPersonalUse-PxlZ.ttf") format("truetype");
+    font-display: swap;
+    font-style: normal;
+    font-weight: 400;
+  }
+
   .shiny-sec {
     background: linear-gradient(135deg, #a476ff 25%, #eee5ff 50%, #a476ff 75%);
     background-size: 400% 100%;
@@ -419,10 +422,10 @@ const baseUrl = rawBaseUrl.endsWith("/") ? rawBaseUrl : `${rawBaseUrl}/`;
     align-items: center;
     justify-content: center;
     padding: 12px 16px;
-    border: 1px solid transparent;
+    border: 1px solid #58b36866;
     border-radius: 10px;
-    color: #131313;
-    background: #f3e7d1;
+    color: #73c982;
+    background: #58b36814;
     font-size: 0.95rem;
     font-weight: 700;
     line-height: 1.65;
@@ -434,15 +437,13 @@ const baseUrl = rawBaseUrl.endsWith("/") ? rawBaseUrl : `${rawBaseUrl}/`;
       transform 250ms ease;
   }
 
-  .intro-reference__button:hover {
-    color: #131313;
-    background: #d8c7ab;
-    transform: translateY(-2px);
-  }
-
+  .intro-reference__button:hover,
   .intro-reference__button:focus-visible {
-    outline: 2px solid #f3e7d1;
-    outline-offset: 2px;
+    border-color: #58b368b3;
+    color: #9ae5a7;
+    background: #58b36824;
+    outline: none;
+    transform: translateY(-2px);
   }
 
   .intro-reference__signature {
@@ -451,9 +452,9 @@ const baseUrl = rawBaseUrl.endsWith("/") ? rawBaseUrl : `${rawBaseUrl}/`;
     max-width: 100%;
     margin-top: 18px;
     overflow: hidden;
-    border-right: 2px solid #f4efe7;
-    color: #f4efe7;
-    font-family: "Segoe Script", "Brush Script MT", cursive;
+    border-right: 2px solid #73c982;
+    color: #73c982;
+    font-family: "Quick Kiss", "Segoe Script", "Brush Script MT", cursive;
     font-size: 1.5rem;
     line-height: 1.65;
     letter-spacing: 0;
@@ -523,50 +524,6 @@ const baseUrl = rawBaseUrl.endsWith("/") ? rawBaseUrl : `${rawBaseUrl}/`;
     object-position: center;
   }
 
-  .intro-reference__now {
-    position: relative;
-    left: 50%;
-    width: min(1150px, calc(100vw - 2rem));
-    padding: 10px 0 6px;
-    transform: translateX(-50%);
-  }
-
-  .intro-reference__now-inner {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 8px 14px;
-    border: 1px solid #3a352d;
-    border-radius: 999px;
-    background: #1d1d1d;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
-  }
-
-  .intro-reference__now-inner p {
-    margin: 0;
-    color: #c7bfb3;
-    font-size: 0.92rem;
-    font-weight: 400;
-    line-height: 1.65;
-    letter-spacing: 0;
-  }
-
-  .intro-reference__now-label {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 5px 10px;
-    border: 1px solid #3a352d;
-    border-radius: 999px;
-    color: #f4efe7;
-    background: #222222;
-    font-size: 0.74rem;
-    font-weight: 700;
-    line-height: 1.65;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-  }
-
   @keyframes intro-signature-typing {
     from {
       width: 0;
@@ -596,11 +553,6 @@ const baseUrl = rawBaseUrl.endsWith("/") ? rawBaseUrl : `${rawBaseUrl}/`;
       width: min(340px, 100%);
     }
 
-    .intro-reference__now-inner {
-      flex-direction: column;
-      align-items: flex-start;
-      border-radius: 14px;
-    }
   }
 
   @media (max-width: 600px) {
