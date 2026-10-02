@@ -194,106 +194,51 @@ const baseUrl = rawBaseUrl.endsWith("/") ? rawBaseUrl : `${rawBaseUrl}/`;
 
           </article>
 
-          <aside class="about-reference__photos" aria-label="Photo collections">
-            <section class="about-reference__photo-group" aria-labelledby="photography-gallery-heading">
-              <p id="photography-gallery-heading" class="about-reference__gallery-label">
-                Photography
-              </p>
+          <aside class="about-reference__photos" aria-labelledby="about-gallery-heading">
+            <p id="about-gallery-heading" class="about-reference__gallery-label">
+              A little earlier:
+            </p>
 
-              <div
-                class="about-stack"
-                role="group"
-                aria-label="Interactive photography collection"
-                data-photo-stack
-              >
-                <span class="sr-only">
-                  Activate or drag the top photo to move it to the back of the stack.
+            <div
+              class="about-stack"
+              role="group"
+              aria-label="Interactive photos of Ahmed"
+              data-photo-stack
+            >
+              <span class="sr-only">
+                Activate or drag the top photo to move it to the back of the stack.
+              </span>
+
+              <button type="button" class="about-stack__item" data-photo-card data-random-rotation="2.4" aria-label="Ahmed as a child sitting in a car seat">
+                <span class="about-stack__card">
+                  <img src={`${baseUrl}images/ahmed-early-5.webp`} alt="Ahmed as a child sitting in a car seat" loading="lazy" decoding="async" draggable="false" />
                 </span>
+              </button>
 
-                <button type="button" class="about-stack__item" data-photo-card data-random-rotation="-2.8" aria-label="Backyard beneath trees and string lights">
-                  <span class="about-stack__card">
-                    <img src={`${baseUrl}images/photography-6.webp`} alt="Backyard beneath trees and string lights" loading="lazy" decoding="async" draggable="false" />
-                  </span>
-                </button>
-
-                <button type="button" class="about-stack__item" data-photo-card data-random-rotation="2.1" aria-label="Toronto skyline at night">
-                  <span class="about-stack__card">
-                    <img src={`${baseUrl}images/photography-5.webp`} alt="Toronto skyline at night" loading="lazy" decoding="async" draggable="false" />
-                  </span>
-                </button>
-
-                <button type="button" class="about-stack__item" data-photo-card data-random-rotation="-1.5" aria-label="Tower Bridge illuminated at night">
-                  <span class="about-stack__card">
-                    <img src={`${baseUrl}images/photography-4.webp`} alt="Tower Bridge illuminated at night" loading="lazy" decoding="async" draggable="false" />
-                  </span>
-                </button>
-
-                <button type="button" class="about-stack__item" data-photo-card data-random-rotation="3.2" aria-label="Sunset reflected across the water">
-                  <span class="about-stack__card">
-                    <img src={`${baseUrl}images/photography-3.webp`} alt="Sunset reflected across the water" loading="lazy" decoding="async" draggable="false" />
-                  </span>
-                </button>
-
-                <button type="button" class="about-stack__item" data-photo-card data-random-rotation="-2.3" aria-label="Rainbow over Queen's University campus">
-                  <span class="about-stack__card">
-                    <img src={`${baseUrl}images/photography-2.webp`} alt="Rainbow over Queen's University campus" loading="lazy" decoding="async" draggable="false" />
-                  </span>
-                </button>
-
-                <button type="button" class="about-stack__item" data-photo-card data-random-rotation="1.6" aria-label="The pyramids at sunset">
-                  <span class="about-stack__card">
-                    <img src={`${baseUrl}images/photography-1.webp`} alt="The pyramids at sunset" loading="lazy" decoding="async" draggable="false" />
-                  </span>
-                </button>
-              </div>
-            </section>
-
-            <section class="about-reference__photo-group" aria-labelledby="about-gallery-heading">
-              <p id="about-gallery-heading" class="about-reference__gallery-label">
-                Photos of Me
-              </p>
-
-              <div
-                class="about-stack"
-                role="group"
-                aria-label="Interactive photos of Ahmed"
-                data-photo-stack
-              >
-                <span class="sr-only">
-                  Activate or drag the top photo to move it to the back of the stack.
+              <button type="button" class="about-stack__item" data-photo-card data-random-rotation="-1.8" aria-label="Ahmed smiling as a child">
+                <span class="about-stack__card">
+                  <img src={`${baseUrl}images/ahmed-early-4.webp`} alt="Ahmed smiling as a child" loading="lazy" decoding="async" draggable="false" />
                 </span>
+              </button>
 
-                <button type="button" class="about-stack__item" data-photo-card data-random-rotation="2.4" aria-label="Ahmed as a child sitting in a car seat">
-                  <span class="about-stack__card">
-                    <img src={`${baseUrl}images/ahmed-early-5.webp`} alt="Ahmed as a child sitting in a car seat" loading="lazy" decoding="async" draggable="false" />
-                  </span>
-                </button>
+              <button type="button" class="about-stack__item" data-photo-card data-random-rotation="3.6" aria-label="Ahmed as a child sitting at a restaurant">
+                <span class="about-stack__card">
+                  <img src={`${baseUrl}images/ahmed-early-3.webp`} alt="Ahmed as a child sitting at a restaurant" loading="lazy" decoding="async" draggable="false" />
+                </span>
+              </button>
 
-                <button type="button" class="about-stack__item" data-photo-card data-random-rotation="-1.8" aria-label="Ahmed smiling as a child">
-                  <span class="about-stack__card">
-                    <img src={`${baseUrl}images/ahmed-early-4.webp`} alt="Ahmed smiling as a child" loading="lazy" decoding="async" draggable="false" />
-                  </span>
-                </button>
+              <button type="button" class="about-stack__item" data-photo-card data-random-rotation="-2.2" aria-label="Ahmed as a child at a birthday celebration">
+                <span class="about-stack__card">
+                  <img src={`${baseUrl}images/ahmed-early-2.webp`} alt="Ahmed as a child at a birthday celebration" loading="lazy" decoding="async" draggable="false" />
+                </span>
+              </button>
 
-                <button type="button" class="about-stack__item" data-photo-card data-random-rotation="3.6" aria-label="Ahmed as a child sitting at a restaurant">
-                  <span class="about-stack__card">
-                    <img src={`${baseUrl}images/ahmed-early-3.webp`} alt="Ahmed as a child sitting at a restaurant" loading="lazy" decoding="async" draggable="false" />
-                  </span>
-                </button>
-
-                <button type="button" class="about-stack__item" data-photo-card data-random-rotation="-2.2" aria-label="Ahmed as a child at a birthday celebration">
-                  <span class="about-stack__card">
-                    <img src={`${baseUrl}images/ahmed-early-2.webp`} alt="Ahmed as a child at a birthday celebration" loading="lazy" decoding="async" draggable="false" />
-                  </span>
-                </button>
-
-                <button type="button" class="about-stack__item" data-photo-card data-random-rotation="1.4" aria-label="Ahmed as a child standing by a doorway">
-                  <span class="about-stack__card">
-                    <img src={`${baseUrl}images/ahmed-early-1.webp`} alt="Ahmed as a child standing by a doorway" loading="lazy" decoding="async" draggable="false" />
-                  </span>
-                </button>
-              </div>
-            </section>
+              <button type="button" class="about-stack__item" data-photo-card data-random-rotation="1.4" aria-label="Ahmed as a child standing by a doorway">
+                <span class="about-stack__card">
+                  <img src={`${baseUrl}images/ahmed-early-1.webp`} alt="Ahmed as a child standing by a doorway" loading="lazy" decoding="async" draggable="false" />
+                </span>
+              </button>
+            </div>
           </aside>
         </div>
       </section>
@@ -312,9 +257,9 @@ const baseUrl = rawBaseUrl.endsWith("/") ? rawBaseUrl : `${rawBaseUrl}/`;
 
 
 <script>
-  const photoStacks = document.querySelectorAll<HTMLElement>("[data-photo-stack]");
+  const photoStack = document.querySelector<HTMLElement>("[data-photo-stack]");
 
-  photoStacks.forEach((photoStack) => {
+  if (photoStack) {
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
     const swipeThreshold = 86;
 
@@ -457,7 +402,7 @@ const baseUrl = rawBaseUrl.endsWith("/") ? rawBaseUrl : `${rawBaseUrl}/`;
     });
 
     syncStack();
-  });
+  }
 </script>
 
 <style is:global>
@@ -779,16 +724,11 @@ const baseUrl = rawBaseUrl.endsWith("/") ? rawBaseUrl : `${rawBaseUrl}/`;
   .about-reference__photos {
     display: flex;
     width: 100%;
-    min-height: 900px;
+    min-height: 360px;
     align-self: center;
     flex-direction: column;
-    justify-content: flex-start;
-    gap: 56px;
-    padding: 8px 34px 30px;
-  }
-
-  .about-reference__photo-group {
-    width: 100%;
+    justify-content: center;
+    padding: 20px 34px 30px;
   }
 
   .about-reference__card:hover {
@@ -931,9 +871,9 @@ const baseUrl = rawBaseUrl.endsWith("/") ? rawBaseUrl : `${rawBaseUrl}/`;
 
   .about-stack {
     position: relative;
-    width: min(300px, 84%);
+    width: min(330px, 88%);
     margin: 0 auto;
-    aspect-ratio: 3 / 4;
+    aspect-ratio: 4 / 3;
     perspective: 600px;
     isolation: isolate;
   }
@@ -967,7 +907,7 @@ const baseUrl = rawBaseUrl.endsWith("/") ? rawBaseUrl : `${rawBaseUrl}/`;
     justify-content: center;
     border: 1px solid rgba(148, 163, 184, 0.18);
     border-radius: 16px;
-    background: #050505;
+    background: #1a1a1a;
     box-shadow: 0 18px 40px rgba(0, 0, 0, 0.38);
     transform: scale(var(--stack-scale, 0.94)) rotateZ(var(--stack-rotation, 0deg));
     transform-origin: 90% 90%;
@@ -1000,7 +940,7 @@ const baseUrl = rawBaseUrl.endsWith("/") ? rawBaseUrl : `${rawBaseUrl}/`;
     display: block;
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
     object-position: center;
     pointer-events: none;
     user-select: none;
@@ -1023,8 +963,7 @@ const baseUrl = rawBaseUrl.endsWith("/") ? rawBaseUrl : `${rawBaseUrl}/`;
     }
 
     .about-reference__photos {
-      min-height: auto;
-      gap: 50px;
+      min-height: 330px;
       padding: 18px 20px 28px;
     }
 
@@ -1051,3 +990,4 @@ const baseUrl = rawBaseUrl.endsWith("/") ? rawBaseUrl : `${rawBaseUrl}/`;
   }
 
 </style>
+
