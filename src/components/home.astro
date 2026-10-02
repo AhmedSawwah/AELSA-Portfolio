@@ -200,137 +200,44 @@ const baseUrl = rawBaseUrl.endsWith("/") ? rawBaseUrl : `${rawBaseUrl}/`;
             </p>
 
             <div
-              class="about-reference__gallery"
-              role="region"
-              aria-label="Photos of Ahmed"
-              data-about-gallery
+              class="about-stack"
+              role="group"
+              aria-label="Interactive photos of Ahmed"
+              data-photo-stack
             >
-              <div class="about-reference__gallery-view" aria-live="polite">
-                <figure
-                  class="about-reference__gallery-item is-active"
-                  data-gallery-item
-                  aria-hidden="false"
-                >
-                  <img
-                    src={`${baseUrl}images/ahmed-early-1.webp`}
-                    alt="Ahmed as a child standing by a doorway"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </figure>
+              <span class="sr-only">
+                Activate or drag the top photo to move it to the back of the stack.
+              </span>
 
-                <figure
-                  class="about-reference__gallery-item"
-                  data-gallery-item
-                  aria-hidden="true"
-                >
-                  <img
-                    src={`${baseUrl}images/ahmed-early-2.webp`}
-                    alt="Ahmed as a child at a birthday celebration"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </figure>
+              <button type="button" class="about-stack__item" data-photo-card data-random-rotation="2.4" aria-label="Ahmed as a child sitting in a car seat">
+                <span class="about-stack__card">
+                  <img src={`${baseUrl}images/ahmed-early-5.webp`} alt="Ahmed as a child sitting in a car seat" loading="lazy" decoding="async" draggable="false" />
+                </span>
+              </button>
 
-                <figure
-                  class="about-reference__gallery-item"
-                  data-gallery-item
-                  aria-hidden="true"
-                >
-                  <img
-                    src={`${baseUrl}images/ahmed-early-3.webp`}
-                    alt="Ahmed as a child sitting at a restaurant"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </figure>
+              <button type="button" class="about-stack__item" data-photo-card data-random-rotation="-1.8" aria-label="Ahmed smiling as a child">
+                <span class="about-stack__card">
+                  <img src={`${baseUrl}images/ahmed-early-4.webp`} alt="Ahmed smiling as a child" loading="lazy" decoding="async" draggable="false" />
+                </span>
+              </button>
 
-                <figure
-                  class="about-reference__gallery-item"
-                  data-gallery-item
-                  aria-hidden="true"
-                >
-                  <img
-                    src={`${baseUrl}images/ahmed-early-4.webp`}
-                    alt="Ahmed smiling as a child"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </figure>
+              <button type="button" class="about-stack__item" data-photo-card data-random-rotation="3.6" aria-label="Ahmed as a child sitting at a restaurant">
+                <span class="about-stack__card">
+                  <img src={`${baseUrl}images/ahmed-early-3.webp`} alt="Ahmed as a child sitting at a restaurant" loading="lazy" decoding="async" draggable="false" />
+                </span>
+              </button>
 
-                <figure
-                  class="about-reference__gallery-item"
-                  data-gallery-item
-                  aria-hidden="true"
-                >
-                  <img
-                    src={`${baseUrl}images/ahmed-early-5.webp`}
-                    alt="Ahmed as a child sitting in a car seat"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </figure>
+              <button type="button" class="about-stack__item" data-photo-card data-random-rotation="-2.2" aria-label="Ahmed as a child at a birthday celebration">
+                <span class="about-stack__card">
+                  <img src={`${baseUrl}images/ahmed-early-2.webp`} alt="Ahmed as a child at a birthday celebration" loading="lazy" decoding="async" draggable="false" />
+                </span>
+              </button>
 
-                <button
-                  type="button"
-                  class="about-reference__gallery-arrow about-reference__gallery-arrow--prev"
-                  aria-label="Previous photo"
-                  data-gallery-prev
-                >
-                  <span aria-hidden="true">‹</span>
-                </button>
-                <button
-                  type="button"
-                  class="about-reference__gallery-arrow about-reference__gallery-arrow--next"
-                  aria-label="Next photo"
-                  data-gallery-next
-                >
-                  <span aria-hidden="true">›</span>
-                </button>
-              </div>
-
-              <div class="about-reference__gallery-dots" role="tablist" aria-label="Choose photo">
-                <button
-                  type="button"
-                  class="about-reference__gallery-dot is-active"
-                  aria-label="Show photo 1"
-                  aria-selected="true"
-                  role="tab"
-                  data-gallery-dot
-                ></button>
-                <button
-                  type="button"
-                  class="about-reference__gallery-dot"
-                  aria-label="Show photo 2"
-                  aria-selected="false"
-                  role="tab"
-                  data-gallery-dot
-                ></button>
-                <button
-                  type="button"
-                  class="about-reference__gallery-dot"
-                  aria-label="Show photo 3"
-                  aria-selected="false"
-                  role="tab"
-                  data-gallery-dot
-                ></button>
-                <button
-                  type="button"
-                  class="about-reference__gallery-dot"
-                  aria-label="Show photo 4"
-                  aria-selected="false"
-                  role="tab"
-                  data-gallery-dot
-                ></button>
-                <button
-                  type="button"
-                  class="about-reference__gallery-dot"
-                  aria-label="Show photo 5"
-                  aria-selected="false"
-                  role="tab"
-                  data-gallery-dot
-                ></button>
-              </div>
+              <button type="button" class="about-stack__item" data-photo-card data-random-rotation="1.4" aria-label="Ahmed as a child standing by a doorway">
+                <span class="about-stack__card">
+                  <img src={`${baseUrl}images/ahmed-early-1.webp`} alt="Ahmed as a child standing by a doorway" loading="lazy" decoding="async" draggable="false" />
+                </span>
+              </button>
             </div>
           </aside>
         </div>
@@ -350,38 +257,150 @@ const baseUrl = rawBaseUrl.endsWith("/") ? rawBaseUrl : `${rawBaseUrl}/`;
 
 
 <script>
-  const aboutGallery = document.querySelector<HTMLElement>("[data-about-gallery]");
+  const photoStack = document.querySelector<HTMLElement>("[data-photo-stack]");
 
-  if (aboutGallery) {
-    const items = Array.from(
-      aboutGallery.querySelectorAll<HTMLElement>("[data-gallery-item]"),
-    );
-    const dots = Array.from(
-      aboutGallery.querySelectorAll<HTMLButtonElement>("[data-gallery-dot]"),
-    );
-    const previous = aboutGallery.querySelector<HTMLButtonElement>("[data-gallery-prev]");
-    const next = aboutGallery.querySelector<HTMLButtonElement>("[data-gallery-next]");
-    let activeIndex = 0;
+  if (photoStack) {
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const swipeThreshold = 86;
 
-    const showPhoto = (index: number) => {
-      activeIndex = (index + items.length) % items.length;
+    const cards = () =>
+      Array.from(photoStack.querySelectorAll<HTMLButtonElement>("[data-photo-card]"));
 
-      items.forEach((item, itemIndex) => {
-        const isActive = itemIndex === activeIndex;
-        item.classList.toggle("is-active", isActive);
-        item.setAttribute("aria-hidden", String(!isActive));
-      });
+    const syncStack = () => {
+      const stackCards = cards();
+      const count = stackCards.length;
 
-      dots.forEach((dot, dotIndex) => {
-        const isActive = dotIndex === activeIndex;
-        dot.classList.toggle("is-active", isActive);
-        dot.setAttribute("aria-selected", String(isActive));
+      stackCards.forEach((card, index) => {
+        const randomRotation = Number(card.dataset.randomRotation ?? 0);
+        const scale = 1 + index * 0.06 - count * 0.06;
+        const rotation = (count - index - 1) * 4 + randomRotation;
+        const isTopCard = index === count - 1;
+
+        card.style.zIndex = String(index + 1);
+        card.style.setProperty("--stack-scale", scale.toFixed(2));
+        card.style.setProperty("--stack-rotation", `${rotation.toFixed(2)}deg`);
+        card.tabIndex = isTopCard ? 0 : -1;
+        card.setAttribute("aria-hidden", String(!isTopCard));
       });
     };
 
-    previous?.addEventListener("click", () => showPhoto(activeIndex - 1));
-    next?.addEventListener("click", () => showPhoto(activeIndex + 1));
-    dots.forEach((dot, index) => dot.addEventListener("click", () => showPhoto(index)));
+    const returnToStack = (card: HTMLButtonElement) => {
+      card.classList.remove("is-dragging");
+      card.style.transition = reducedMotion.matches
+        ? "none"
+        : "transform 440ms cubic-bezier(0.22, 1.35, 0.36, 1)";
+      card.style.transform = "";
+    };
+
+    const sendToBack = (
+      card: HTMLButtonElement,
+      directionX = 1,
+      directionY = 0,
+    ) => {
+      if (card !== photoStack.lastElementChild || card.dataset.animating === "true") return;
+
+      card.dataset.animating = "true";
+      card.classList.remove("is-dragging");
+
+      const width = photoStack.getBoundingClientRect().width;
+      const xSign = directionX === 0 ? 1 : Math.sign(directionX);
+      const exitX = xSign * Math.max(width * 1.15, 220);
+      const exitY = Math.max(-80, Math.min(80, directionY * 0.6));
+      const exitRotation = xSign * 18;
+
+      card.style.transition = reducedMotion.matches
+        ? "none"
+        : "transform 280ms cubic-bezier(0.4, 0, 1, 1), opacity 220ms ease";
+      card.style.transform = `translate3d(${exitX}px, ${exitY}px, 0) rotateZ(${exitRotation}deg)`;
+      card.style.opacity = reducedMotion.matches ? "1" : "0";
+
+      window.setTimeout(() => {
+        photoStack.insertBefore(card, photoStack.firstElementChild);
+        card.style.transition = "none";
+        card.style.transform = "";
+        card.style.opacity = "1";
+        delete card.dataset.animating;
+        syncStack();
+
+        window.requestAnimationFrame(() => {
+          card.style.transition = "";
+        });
+      }, reducedMotion.matches ? 0 : 285);
+    };
+
+    cards().forEach((card) => {
+      let pointerId: number | null = null;
+      let startX = 0;
+      let startY = 0;
+      let deltaX = 0;
+      let deltaY = 0;
+      let moved = false;
+      let suppressClick = false;
+
+      card.addEventListener("pointerdown", (event) => {
+        if (card !== photoStack.lastElementChild || card.dataset.animating === "true") return;
+
+        pointerId = event.pointerId;
+        startX = event.clientX;
+        startY = event.clientY;
+        deltaX = 0;
+        deltaY = 0;
+        moved = false;
+        card.classList.add("is-dragging");
+        card.style.transition = "none";
+        card.setPointerCapture(pointerId);
+        event.preventDefault();
+      });
+
+      card.addEventListener("pointermove", (event) => {
+        if (event.pointerId !== pointerId) return;
+
+        deltaX = event.clientX - startX;
+        deltaY = event.clientY - startY;
+        const distance = Math.hypot(deltaX, deltaY);
+        moved = moved || distance > 5;
+
+        const rotateX = Math.max(-18, Math.min(18, -deltaY * 0.12));
+        const rotateY = Math.max(-18, Math.min(18, deltaX * 0.12));
+        card.style.transform = `translate3d(${deltaX}px, ${deltaY}px, 0) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+      });
+
+      const finishPointer = (event: PointerEvent) => {
+        if (event.pointerId !== pointerId) return;
+
+        if (card.hasPointerCapture(pointerId)) card.releasePointerCapture(pointerId);
+        pointerId = null;
+        suppressClick = true;
+        window.setTimeout(() => {
+          suppressClick = false;
+        }, 0);
+
+        if (Math.hypot(deltaX, deltaY) >= swipeThreshold) {
+          sendToBack(card, deltaX, deltaY);
+        } else if (!moved) {
+          sendToBack(card);
+        } else {
+          returnToStack(card);
+        }
+      };
+
+      card.addEventListener("pointerup", finishPointer);
+      card.addEventListener("pointercancel", (event) => {
+        if (event.pointerId !== pointerId) return;
+        pointerId = null;
+        returnToStack(card);
+      });
+
+      card.addEventListener("click", (event) => {
+        if (event.detail > 0) {
+          if (suppressClick) event.preventDefault();
+          return;
+        }
+        sendToBack(card);
+      });
+    });
+
+    syncStack();
   }
 </script>
 
@@ -688,8 +707,7 @@ const baseUrl = rawBaseUrl.endsWith("/") ? rawBaseUrl : `${rawBaseUrl}/`;
     align-items: start;
   }
 
-  .about-reference__card,
-  .about-reference__photos {
+  .about-reference__card {
     width: 100%;
     padding: 28px;
     border: 1px solid #3a352d;
@@ -703,11 +721,16 @@ const baseUrl = rawBaseUrl.endsWith("/") ? rawBaseUrl : `${rawBaseUrl}/`;
   }
 
   .about-reference__photos {
+    display: flex;
+    width: 100%;
+    min-height: 360px;
     align-self: center;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px 34px 30px;
   }
 
-  .about-reference__card:hover,
-  .about-reference__photos:hover {
+  .about-reference__card:hover {
     border-color: #756f66;
     transform: translateY(-8px);
     box-shadow:
@@ -836,7 +859,7 @@ const baseUrl = rawBaseUrl.endsWith("/") ? rawBaseUrl : `${rawBaseUrl}/`;
 
 
   .about-reference__gallery-label {
-    margin: 0 0 12px;
+    margin: 0 0 18px;
     color: #c7bfb3;
     font-size: 0.75rem;
     font-weight: 700;
@@ -845,150 +868,82 @@ const baseUrl = rawBaseUrl.endsWith("/") ? rawBaseUrl : `${rawBaseUrl}/`;
     text-transform: uppercase;
   }
 
-  .about-reference__gallery {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .about-reference__gallery-view {
+  .about-stack {
     position: relative;
-    overflow: hidden;
+    width: min(330px, 88%);
+    margin: 0 auto;
     aspect-ratio: 4 / 3;
-    border: 1px solid #3a352d;
-    border-radius: 14px;
-    background: #222222;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    perspective: 600px;
+    isolation: isolate;
   }
 
-  .about-reference__gallery-view::after {
+  .about-stack__item {
     position: absolute;
-    z-index: 2;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    border: 0;
     inset: 0;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.35), transparent 50%);
-    content: "";
-    pointer-events: none;
+    background: transparent;
+    cursor: grab;
+    touch-action: none;
+    user-select: none;
+    transform-style: preserve-3d;
+    transition: transform 440ms cubic-bezier(0.22, 1.35, 0.36, 1);
+    -webkit-tap-highlight-color: transparent;
   }
 
-  .about-reference__gallery-item {
-    position: absolute;
-    display: grid;
-    align-items: end;
-    margin: 0;
-    opacity: 0;
-    inset: 0;
-    transition: opacity 450ms ease;
+  .about-stack__item.is-dragging {
+    cursor: grabbing;
   }
 
-  .about-reference__gallery-item.is-active {
-    z-index: 1;
-    opacity: 1;
+  .about-stack__card {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(148, 163, 184, 0.18);
+    border-radius: 16px;
+    background: #1a1a1a;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.38);
+    transform: scale(var(--stack-scale, 0.94)) rotateZ(var(--stack-rotation, 0deg));
+    transform-origin: 90% 90%;
+    transition:
+      transform 420ms cubic-bezier(0.22, 1, 0.36, 1),
+      border-color 220ms ease,
+      box-shadow 220ms ease;
   }
 
-  .about-reference__gallery-item img {
+  .about-stack__item:last-child:not(.is-dragging):hover .about-stack__card {
+    border-color: rgba(115, 201, 130, 0.52);
+    box-shadow:
+      0 24px 54px rgba(0, 0, 0, 0.46),
+      0 0 0 1px rgba(88, 179, 104, 0.16);
+    transform: translateY(-5px) scale(var(--stack-scale, 0.94)) rotateZ(var(--stack-rotation, 0deg));
+  }
+
+  .about-stack__item:focus-visible {
+    outline: none;
+  }
+
+  .about-stack__item:focus-visible .about-stack__card {
+    border-color: #73c982;
+    box-shadow:
+      0 18px 40px rgba(0, 0, 0, 0.42),
+      0 0 0 3px rgba(115, 201, 130, 0.32);
+  }
+
+  .about-stack__item img {
     display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center;
-    transition: transform 600ms ease;
-  }
-
-  .about-reference__gallery-item.is-active img {
-    transform: scale(1.03);
-  }
-
-  .about-reference__gallery-item .about-reference__gallery-image--childhood {
-    object-position: center 68%;
-  }
-
-  .about-reference__gallery-caption {
-    position: relative;
-    z-index: 3;
-    width: fit-content;
-    margin: 0 12px 12px;
-    padding: 5px 12px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 999px;
-    color: #ffffff;
-    background: rgba(0, 0, 0, 0.45);
-    font-size: 0.8rem;
-    font-weight: 600;
-    line-height: 1.4;
-    letter-spacing: 0;
-    backdrop-filter: blur(10px);
-  }
-
-  .about-reference__gallery-arrow {
-    position: absolute;
-    z-index: 4;
-    top: 50%;
-    display: grid;
-    width: 36px;
-    height: 36px;
-    padding: 0;
-    place-items: center;
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    border-radius: 999px;
-    color: #111111;
-    background: rgba(255, 255, 255, 0.82);
-    font-size: 1.55rem;
-    line-height: 1;
-    cursor: pointer;
-    transform: translateY(-50%);
-    backdrop-filter: blur(10px);
-    transition:
-      background 200ms ease,
-      transform 200ms ease;
-  }
-
-  .about-reference__gallery-arrow:hover,
-  .about-reference__gallery-arrow:focus-visible {
-    background: rgba(255, 255, 255, 0.96);
-    outline: none;
-    transform: translateY(-50%) scale(1.08);
-  }
-
-  .about-reference__gallery-arrow--prev {
-    left: 10px;
-  }
-
-  .about-reference__gallery-arrow--next {
-    right: 10px;
-  }
-
-  .about-reference__gallery-dots {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 7px;
-  }
-
-  .about-reference__gallery-dot {
-    width: 7px;
-    height: 7px;
-    padding: 0;
-    border: 1px solid #3a352d;
-    border-radius: 999px;
-    background: #222222;
-    opacity: 0.5;
-    cursor: pointer;
-    transition:
-      width 250ms ease,
-      opacity 250ms ease,
-      color 250ms ease;
-  }
-
-  .about-reference__gallery-dot.is-active {
-    width: 20px;
-    border-color: #73c982;
-    background: #73c982;
-    opacity: 1;
-  }
-
-  .about-reference__gallery-dot:focus-visible {
-    outline: 2px solid #73c982;
-    outline-offset: 3px;
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-drag: none;
   }
 
   @media (max-width: 980px) {
@@ -1002,9 +957,17 @@ const baseUrl = rawBaseUrl.endsWith("/") ? rawBaseUrl : `${rawBaseUrl}/`;
       padding: 30px 0 48px;
     }
 
-    .about-reference__card,
-    .about-reference__photos {
+    .about-reference__card {
       padding: 22px;
+    }
+
+    .about-reference__photos {
+      min-height: 330px;
+      padding: 18px 20px 28px;
+    }
+
+    .about-stack {
+      width: min(300px, 86%);
     }
 
     .about-reference__education {
@@ -1014,16 +977,13 @@ const baseUrl = rawBaseUrl.endsWith("/") ? rawBaseUrl : `${rawBaseUrl}/`;
 
   @media (prefers-reduced-motion: reduce) {
     .about-reference__card,
-    .about-reference__photos,
     .about-reference__thoughts,
-    .about-reference__gallery-item img,
-    .about-reference__gallery-arrow,
-    .about-reference__gallery-dot {
+    .about-stack__item,
+    .about-stack__card {
       transition: none;
     }
 
-    .about-reference__card:hover,
-    .about-reference__photos:hover {
+    .about-reference__card:hover {
       transform: none;
     }
   }
