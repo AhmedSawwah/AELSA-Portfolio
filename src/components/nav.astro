@@ -17,16 +17,10 @@ const sectionHref = (id: string) =>
 
 const navItems: NavItem[] = [
   { label: "Home", href: sectionHref("home"), sectionId: "home" },
-  { label: "About", href: sectionHref("about"), sectionId: "about" },
   { label: "Experience", href: sectionHref("experience"), sectionId: "experience" },
   { label: "Projects", href: sectionHref("projects"), sectionId: "projects" },
-  {
-    label: "Technologies",
-    href: sectionHref("technologies"),
-    sectionId: "technologies",
-  },
-  { label: "Thoughts", href: `${baseUrl}thoughts/` },
   { label: "Contact", href: sectionHref("contact"), sectionId: "contact" },
+  { label: "Thoughts", href: `${baseUrl}thoughts/` },
 ];
 ---
 
@@ -171,6 +165,8 @@ const navItems: NavItem[] = [
     font-weight: 600;
     line-height: 1.4;
     letter-spacing: 0;
+    padding-bottom: 4px;
+    border-bottom: 2px solid transparent;
     text-decoration: none;
     transition:
       color 250ms ease,
@@ -184,8 +180,7 @@ const navItems: NavItem[] = [
   }
 
   .site-nav__link.active {
-    padding-bottom: 4px;
-    border-bottom: 2px solid #73c982;
+    border-bottom-color: #73c982;
     color: #73c982;
   }
 
