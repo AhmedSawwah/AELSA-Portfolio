@@ -2,28 +2,34 @@
 const rawBaseUrl = import.meta.env.BASE_URL;
 const baseUrl = rawBaseUrl.endsWith("/") ? rawBaseUrl : `${rawBaseUrl}/`;
 
-const technologies = [
-  { key: "astro", label: "Astro" },
-  { key: "vue", label: "Vue" },
-  { key: "react", label: "React" },
-  { key: "typeScript", label: "TypeScript" },
-  { key: "tailwindcss", label: "Tailwind CSS" },
-  { key: "next", label: "Next.js" },
-  { key: "nodejs", label: "Node.js" },
-  { key: "HTML5", label: "HTML5" },
-  { key: "CSS3", label: "CSS3" },
-  { key: "javaScript", label: "JavaScript" },
-  { key: "git", label: "Git" },
-  { key: "supabase", label: "Supabase" },
-  { key: "mysql", label: "MySQL" },
-  { key: "bash", label: "Bash" },
+const rows = [
+  [
+    { key: "c", label: "C" },
+    { key: "java", label: "Java" },
+    { key: "javaScript", label: "JavaScript" },
+    { key: "python", label: "Python" },
+    { key: "HTML5", label: "HTML" },
+    { key: "CSS3", label: "CSS" },
+    { key: "mysql", label: "SQL" },
+    { key: "bash", label: "Bash" },
+    { key: "prolog", label: "Prolog" },
+  ],
+  [
+    { key: "astro", label: "Astro" },
+    { key: "vue", label: "Vue" },
+    { key: "react", label: "React" },
+    { key: "typeScript", label: "TypeScript" },
+    { key: "tailwindcss", label: "Tailwind CSS" },
+  ],
+  [
+    { key: "next", label: "Next.js" },
+    { key: "nodejs", label: "Node.js" },
+    { key: "git", label: "Git" },
+    { key: "supabase", label: "Supabase" },
+  ],
 ];
 
-const rows = [
-  technologies.slice(0, 5),
-  technologies.slice(5, 10),
-  technologies.slice(10),
-];
+const technologies = rows.flat();
 
 const marqueeRows = rows.map((row) => {
   const copiesNeeded = Math.ceil(10 / row.length);
