@@ -297,7 +297,7 @@ const baseUrl = rawBaseUrl.endsWith("/") ? rawBaseUrl : `${rawBaseUrl}/`;
       directionX = 1,
       directionY = 0,
     ) => {
-      if (card !== photoStack.lastElementChild || card.dataset.animating === "true") return;
+      if (card !== cards().at(-1) || card.dataset.animating === "true") return;
 
       card.dataset.animating = "true";
       card.classList.remove("is-dragging");
@@ -315,7 +315,8 @@ const baseUrl = rawBaseUrl.endsWith("/") ? rawBaseUrl : `${rawBaseUrl}/`;
       card.style.opacity = reducedMotion.matches ? "1" : "0";
 
       window.setTimeout(() => {
-        photoStack.insertBefore(card, photoStack.firstElementChild);
+        const firstCard = cards()[0];
+        photoStack.insertBefore(card, firstCard ?? null);
         card.style.transition = "none";
         card.style.transform = "";
         card.style.opacity = "1";
@@ -338,7 +339,7 @@ const baseUrl = rawBaseUrl.endsWith("/") ? rawBaseUrl : `${rawBaseUrl}/`;
       let suppressClick = false;
 
       card.addEventListener("pointerdown", (event) => {
-        if (card !== photoStack.lastElementChild || card.dataset.animating === "true") return;
+        if (card !== cards().at(-1) || card.dataset.animating === "true") return;
 
         pointerId = event.pointerId;
         startX = event.clientX;
