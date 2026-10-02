@@ -110,6 +110,7 @@ const navItems: NavItem[] = [
     position: sticky;
     z-index: 1000;
     top: 0;
+    margin-inline: -2.25rem;
     border-bottom: 1px solid #3a352d;
     background: rgba(19, 19, 19, 0.86);
     backdrop-filter: blur(10px);
@@ -188,6 +189,18 @@ const navItems: NavItem[] = [
 
   .site-nav__toggle {
     display: none;
+  }
+
+  @media (min-width: 640px) {
+    .site-nav {
+      margin-inline: -7rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .site-nav {
+      margin-inline: -5rem;
+    }
   }
 
   @media (max-width: 900px) {
