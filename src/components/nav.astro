@@ -26,14 +26,6 @@ const navItems: NavItem[] = [
 
 <nav class="site-nav" aria-label="Primary navigation">
   <div class="site-nav__inner">
-    <a
-      href={sectionHref("home")}
-      class="site-nav__brand"
-      aria-label="Ahmed El-Sawwah home"
-    >
-      <span>Ahmed El-Sawwah</span>
-    </a>
-
     <button
       id="mobile-menu-toggle"
       class="site-nav__toggle"
@@ -115,41 +107,6 @@ const navItems: NavItem[] = [
     margin: 0 auto;
   }
 
-  .site-nav__brand {
-    position: absolute;
-    top: 8px;
-    left: calc(50% - 50vw + 20px);
-    display: flex;
-    width: 190px;
-    height: 52px;
-    flex: 0 0 auto;
-    align-items: center;
-    justify-content: flex-start;
-    opacity: 0.92;
-    transition:
-      opacity 250ms ease,
-      transform 250ms ease;
-  }
-
-  .site-nav__brand:hover,
-  .site-nav__brand:focus-visible {
-    opacity: 1;
-    outline: none;
-    transform: translateY(-1px);
-  }
-
-  .site-nav__brand span {
-    display: block;
-    color: #73c982;
-    font-family: "Segoe Script", "Brush Script MT", cursive;
-    font-size: 1.55rem;
-    font-style: italic;
-    font-weight: 400;
-    line-height: 1;
-    letter-spacing: 0;
-    white-space: nowrap;
-  }
-
   .site-nav__links {
     display: flex;
     align-items: center;
@@ -202,14 +159,6 @@ const navItems: NavItem[] = [
   }
 
   @media (max-width: 900px) {
-    .site-nav__brand {
-      width: 165px;
-    }
-
-    .site-nav__brand span {
-      font-size: 1.3rem;
-    }
-
     .site-nav__toggle {
       display: grid;
       width: 40px;
@@ -312,7 +261,6 @@ const navItems: NavItem[] = [
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .site-nav__brand,
     .site-nav__link,
     .site-nav__toggle,
     .site-nav__links {
